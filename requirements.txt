@@ -3,6 +3,6 @@ flake8==3.7.0
 pytest-django==4.8.0
 pytest-cov==4.1.0
 python-decouple==3.8
-sentry-sdk==1.39.1
+sentry-sdk==2.35.2
 whitenoise==6.5.0
 gunicorn==21.2.0

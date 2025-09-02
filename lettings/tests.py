@@ -91,5 +91,5 @@ class LettingViewsTest(TestCase):
     def test_letting_detail_view_not_found(self):
         """Test letting detail view with non-existent ID."""
         url = reverse('lettings:letting', kwargs={'letting_id': 9999})
-        with self.assertRaises(Letting.DoesNotExist):
-            self.client.get(url)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)

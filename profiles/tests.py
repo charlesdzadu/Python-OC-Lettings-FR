@@ -70,5 +70,5 @@ class ProfileViewsTest(TestCase):
     def test_profile_detail_view_not_found(self):
         """Test profile detail view with non-existent username."""
         url = reverse('profiles:profile', kwargs={'username': 'nonexistent'})
-        with self.assertRaises(Profile.DoesNotExist):
-            self.client.get(url)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
