@@ -75,3 +75,59 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## Déploiement
+
+### Résumé du fonctionnement
+
+Le déploiement est automatisé via un pipeline CI/CD GitHub Actions qui :
+1. Exécute les tests et le linting sur chaque push
+2. Construit et pousse l'image Docker vers Docker Hub (branches master/main uniquement)
+3. Déclenche le déploiement automatique sur le service d'hébergement
+
+### Configuration requise
+
+#### Variables d'environnement
+- `SECRET_KEY` : Clé secrète Django (générer une nouvelle pour la production)
+- `DEBUG` : False en production
+- `ALLOWED_HOSTS` : Domaine(s) autorisé(s)
+- `SENTRY_DSN` : DSN pour le monitoring Sentry (optionnel)
+
+#### Secrets GitHub Actions
+- `DOCKER_USERNAME` : Nom d'utilisateur Docker Hub
+- `DOCKER_PASSWORD` : Mot de passe Docker Hub
+- `RENDER_DEPLOY_HOOK_URL` : Webhook de déploiement (si utilisation de Render)
+
+### Étapes de déploiement
+
+#### 1. Configuration initiale
+```bash
+# Créer un fichier .env avec les variables de production
+cp .env.example .env
+# Éditer .env avec les valeurs de production
+```
+
+#### 2. Configuration du service d'hébergement (Render)
+1. Créer un nouveau Web Service sur Render
+2. Connecter le repository GitHub
+3. Configurer les variables d'environnement dans Render
+4. Activer le déploiement automatique
+
+#### 3. Déploiement
+```bash
+# Le déploiement se fait automatiquement lors d'un push sur master
+git push origin master
+```
+
+#### 4. Récupération de l'image Docker
+```bash
+# Récupérer l'image depuis Docker Hub
+docker pull [username]/oc-lettings-site:latest
+
+# Lancer localement
+docker run -p 8000:8000 -e SECRET_KEY=your-key [username]/oc-lettings-site:latest
+```
+
+### Monitoring
+
+Le site utilise Sentry pour le monitoring des erreurs. Configurer `SENTRY_DSN` dans les variables d'environnement pour activer cette fonctionnalité.

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: oc-lettings-site
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_HOSTS
+        value: oc-lettings-site.onrender.com
+      - key: SENTRY_DSN
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: DJANGO_LOG_LEVEL
+        value: INFO
+    healthCheckPath: /
+    autoDeploy: true
