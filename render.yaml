@@ -9,7 +9,7 @@ services:
       - key: DEBUG
         value: false
       - key: ALLOWED_HOSTS
-        value: oc-lettings-site.onrender.com
+        value: python-oc-lettings-fr-45xy.onrender.com
       - key: SENTRY_DSN
         sync: false
       - key: ENVIRONMENT
