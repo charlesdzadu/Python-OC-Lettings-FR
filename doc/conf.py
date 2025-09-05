@@ -19,8 +19,8 @@ project = 'OC Lettings Site'
 copyright = '2025, OC Lettings Team'
 author = 'Charles K. DZADU'
 
-version = '1.0'
-release = '1.0'
+version = '1.1'
+release = '1.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
