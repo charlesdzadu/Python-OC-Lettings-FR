@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Procédures de déploiement &mdash; OC Lettings Site 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Guide d’utilisation" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC Lettings Site
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Sommaire:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequis">Prérequis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-locale">Installation locale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#cloner-le-repository">1. Cloner le repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-l-environnement-virtuel">2. Créer l’environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installer-les-dependances">3. Installer les dépendances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#configuration-des-variables-d-environnement">4. Configuration des variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#appliquer-les-migrations">5. Appliquer les migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-un-superutilisateur-optionnel">6. Créer un superutilisateur (optionnel)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-avec-docker">Installation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#construire-l-image">1. Construire l’image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#lancer-l-application">2. Lancer l’application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Guide de démarrage rapide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-en-5-minutes">Démarrage en 5 minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-avec-docker">Démarrage avec Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#commandes-essentielles">Commandes essentielles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#premiers-pas">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#structure-des-urls-principales">Structure des URLs principales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#donnees-de-test">Données de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#resolution-des-problemes-courants">Résolution des problèmes courants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prochaines-etapes">Prochaines étapes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies utilisées</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#stack-technique-principale">Stack technique principale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#framework-backend">Framework Backend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#serveur-web">Serveur Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#outils-de-developpement">Outils de développement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#tests-et-qualite-du-code">Tests et qualité du code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#configuration-et-environnement">Configuration et environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#monitoring-et-debugging">Monitoring et debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#containerisation-et-deploiement">Containerisation et déploiement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#ci-cd-et-versioning">CI/CD et versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#hebergement">Hébergement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#architecture-et-patterns">Architecture et patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#patterns-utilises">Patterns utilisés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#structure-modulaire">Structure modulaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#securite">Sécurité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#mesures-de-securite-implementees">Mesures de sécurité implémentées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#versions-et-compatibilite">Versions et compatibilité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#compatibilite-testee">Compatibilité testée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#dependances-et-mises-a-jour">Dépendances et mises à jour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#gestion-des-dependances">Gestion des dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Structure de la base de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#schema-de-la-base-de-donnees">Schéma de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#diagramme-des-relations">Diagramme des relations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#modeles-de-donnees">Modèles de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-address">Model Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-letting">Model Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-profile">Model Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#tables-django-par-defaut">Tables Django par défaut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-d-authentification">Tables d’authentification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-systeme">Tables système</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#commandes-de-gestion-de-la-base-de-donnees">Commandes de gestion de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#acces-a-la-base-de-donnees">Accès à la base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migrations">Migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#gestion-des-donnees">Gestion des données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#requetes-orm-courantes">Requêtes ORM courantes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-letting">Exemples pour Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-profile">Exemples pour Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#optimisation-des-performances">Optimisation des performances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#index">Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#requetes-optimisees">Requêtes optimisées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#sauvegarde-et-restauration">Sauvegarde et restauration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#sauvegarde-complete">Sauvegarde complète</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#restauration">Restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#considerations-pour-la-production">Considérations pour la production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migration-vers-postgresql">Migration vers PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API et interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#architecture-des-urls">Architecture des URLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-generale">Structure générale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#configuration-des-urls-principales">Configuration des URLs principales</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#endpoints-de-l-application">Endpoints de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#application-principale">Application principale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-lettings">Module Lettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-profiles">Module Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#vues-detaillees">Vues détaillées</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-index-page-d-accueil">Vue index (page d’accueil)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-index">Vue lettings.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-letting">Vue lettings.letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-index">Vue profiles.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-profile">Vue profiles.profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-des-templates">Structure des templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#template-de-base">Template de base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#interface-d-administration-django">Interface d’administration Django</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#acces">Accès</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#modeles-enregistres">Modèles enregistrés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#fonctionnalites-d-administration">Fonctionnalités d’administration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-restful-extension-future">API RESTful (Extension future)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-proposee">Structure proposée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#implementation-avec-django-rest-framework">Implémentation avec Django REST Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#gestion-des-erreurs">Gestion des erreurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#pages-d-erreur-personnalisees">Pages d’erreur personnalisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#gestion-des-exceptions">Gestion des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#middleware-et-hooks">Middleware et hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#middleware-actifs">Middleware actifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#contexte-processors">Contexte processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tests-des-interfaces">Tests des interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-unitaires-des-vues">Tests unitaires des vues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-d-integration">Tests d’intégration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Guide d’utilisation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#navigation-dans-l-application">Navigation dans l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#page-d-accueil">Page d’accueil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-utilisateur">Interface utilisateur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-lettings-locations">Module Lettings (Locations)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-locations">Liste des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-une-location">Détail d’une location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#navigation-dans-les-locations">Navigation dans les locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-profiles-profils">Module Profiles (Profils)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-profils">Liste des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-un-profil">Détail d’un profil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#panel-d-administration">Panel d’administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-a-l-administration">Accès à l’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-d-administration">Interface d’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-locations">Gestion des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-profils">Gestion des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#fonctionnalites-avancees">Fonctionnalités avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#commandes-de-gestion">Commandes de gestion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-au-shell-django">Accès au shell Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#creation-de-donnees-via-le-shell">Création de données via le shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance-et-nettoyage">Maintenance et nettoyage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#personnalisation">Personnalisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#modifier-les-styles">Modifier les styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#personnaliser-les-templates">Personnaliser les templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#ajouter-des-fonctionnalites">Ajouter des fonctionnalités</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#bonnes-pratiques-d-utilisation">Bonnes pratiques d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#securite">Sécurité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#problemes-courants">Problèmes courants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#support-et-aide">Support et aide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Procédures de déploiement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vue-d-ensemble-du-deploiement">Vue d’ensemble du déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#architecture-de-deploiement">Architecture de déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flux-de-deploiement">Flux de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pipeline-ci-cd-avec-github-actions">Pipeline CI/CD avec GitHub Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-du-workflow">Configuration du workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-des-secrets-github">Configuration des secrets GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#etapes-du-pipeline">Étapes du pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#containerisation-avec-docker">Containerisation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dockerfile">Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-compose">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commandes-docker">Commandes Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-de-l-environnement">Configuration de l’environnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variables-d-environnement">Variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings-de-production">Settings de production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploiement-sur-render">Déploiement sur Render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-initiale">Configuration initiale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-des-variables">Configuration des variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#render-yaml">render.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deploiement-manuel">Déploiement manuel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploiement-sur-d-autres-plateformes">Déploiement sur d’autres plateformes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#heroku">Heroku</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws-elastic-beanstalk">AWS Elastic Beanstalk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digitalocean-app-platform">DigitalOcean App Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-avec-sentry">Monitoring avec Sentry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-sentry">Configuration Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-de-sentry">Test de Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alertes-et-notifications">Alertes et notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rollback-et-recuperation">Rollback et récupération</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#strategie-de-rollback">Stratégie de rollback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backup-et-restauration">Backup et restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#checklist-de-deploiement">Checklist de déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#avant-le-deploiement">Avant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pendant-le-deploiement">Pendant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apres-le-deploiement">Après le déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commandes-utiles">Commandes utiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deploiement-rapide">Déploiement rapide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verification-de-sante">Vérification de santé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logs-et-debugging">Logs et debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optimisations-de-production">Optimisations de production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC Lettings Site</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Procédures de déploiement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/deployment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="procedures-de-deploiement">
+<h1>Procédures de déploiement<a class="headerlink" href="#procedures-de-deploiement" title="Link to this heading"></a></h1>
+<p>Ce document détaille les procédures complètes de déploiement de l’application OC Lettings Site, incluant le pipeline CI/CD, la containerisation Docker et le déploiement sur différentes plateformes.</p>
+<section id="vue-d-ensemble-du-deploiement">
+<h2>Vue d’ensemble du déploiement<a class="headerlink" href="#vue-d-ensemble-du-deploiement" title="Link to this heading"></a></h2>
+<section id="architecture-de-deploiement">
+<h3>Architecture de déploiement<a class="headerlink" href="#architecture-de-deploiement" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GitHub Repository
+       │
+       ├──[push]──&gt; GitHub Actions CI/CD
+       │                    │
+       │                    ├── Tests &amp; Linting
+       │                    ├── Build Docker Image
+       │                    ├── Push to Docker Hub
+       │                    └── Deploy to Render
+       │
+       └──[webhook]──&gt; Render Auto-Deploy
+</pre></div>
+</div>
+</section>
+<section id="flux-de-deploiement">
+<h3>Flux de déploiement<a class="headerlink" href="#flux-de-deploiement" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Développement</strong> : Code sur branche feature</p></li>
+<li><p><strong>Tests</strong> : Pipeline CI sur chaque push</p></li>
+<li><p><strong>Build</strong> : Construction image Docker (master/main)</p></li>
+<li><p><strong>Registry</strong> : Push vers Docker Hub</p></li>
+<li><p><strong>Déploiement</strong> : Déclenchement automatique sur Render</p></li>
+<li><p><strong>Monitoring</strong> : Suivi avec Sentry</p></li>
+</ol>
+</section>
+</section>
+<section id="pipeline-ci-cd-avec-github-actions">
+<h2>Pipeline CI/CD avec GitHub Actions<a class="headerlink" href="#pipeline-ci-cd-avec-github-actions" title="Link to this heading"></a></h2>
+<section id="configuration-du-workflow">
+<h3>Configuration du workflow<a class="headerlink" href="#configuration-du-workflow" title="Link to this heading"></a></h3>
+<p>Le pipeline est défini dans <code class="docutils literal notranslate"><span class="pre">.github/workflows/ci-cd.yml</span></code> :</p>
+<p><strong>Déclencheurs</strong> :</p>
+<ul class="simple">
+<li><p>Push sur branches : master, main, develop</p></li>
+<li><p>Pull requests vers : master, main</p></li>
+</ul>
+<p><strong>Jobs du pipeline</strong> :</p>
+<ol class="arabic simple">
+<li><p><strong>test</strong> : Tests et linting</p></li>
+<li><p><strong>docker</strong> : Build et push Docker (master/main uniquement)</p></li>
+<li><p><strong>deploy</strong> : Déploiement production (master/main uniquement)</p></li>
+</ol>
+</section>
+<section id="configuration-des-secrets-github">
+<h3>Configuration des secrets GitHub<a class="headerlink" href="#configuration-des-secrets-github" title="Link to this heading"></a></h3>
+<p>Dans Settings &gt; Secrets and variables &gt; Actions :</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Secrets requis</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Secret</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DOCKER_USERNAME</p></td>
+<td><p>Nom d’utilisateur Docker Hub</p></td>
+</tr>
+<tr class="row-odd"><td><p>DOCKER_TOKEN</p></td>
+<td><p>Token d’accès Docker Hub</p></td>
+</tr>
+<tr class="row-even"><td><p>RENDER_SERVICE_ID</p></td>
+<td><p>ID du service Render</p></td>
+</tr>
+<tr class="row-odd"><td><p>RENDER_API_KEY</p></td>
+<td><p>Clé API Render</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Créer un token Docker Hub</strong> :</p>
+<ol class="arabic simple">
+<li><p>Aller sur <a class="reference external" href="https://hub.docker.com/settings/security">https://hub.docker.com/settings/security</a></p></li>
+<li><p>Cliquer sur “New Access Token”</p></li>
+<li><p>Donner un nom descriptif</p></li>
+<li><p>Copier le token généré</p></li>
+</ol>
+</section>
+<section id="etapes-du-pipeline">
+<h3>Étapes du pipeline<a class="headerlink" href="#etapes-du-pipeline" title="Link to this heading"></a></h3>
+<p><strong>1. Tests et Linting</strong> :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Flake8</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flake8 --exclude=venv,migrations</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests with coverage</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest --cov=. --cov-report=term-missing --cov-fail-under=80</span>
+</pre></div>
+</div>
+<p><strong>2. Build Docker</strong> :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and push Docker image</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v5</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKER_USERNAME }}/oc-lettings-site:latest</span>
+</pre></div>
+</div>
+<p><strong>3. Déploiement</strong> :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to hosting service</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JorgeLNJunior/render-deploy@v1.4.5</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">service_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.RENDER_SERVICE_ID }}</span>
+<span class="w">    </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.RENDER_API_KEY }}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="containerisation-avec-docker">
+<h2>Containerisation avec Docker<a class="headerlink" href="#containerisation-avec-docker" title="Link to this heading"></a></h2>
+<section id="dockerfile">
+<h3>Dockerfile<a class="headerlink" href="#dockerfile" title="Link to this heading"></a></h3>
+<p>Structure du Dockerfile multi-stage :</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># Stage 1: Builder</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">builder</span>
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Installer les dépendances système</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gcc<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+
+<span class="c"># Copier et installer les dépendances Python</span>
+<span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c"># Stage 2: Runtime</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Copier les dépendances installées</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/usr/local/lib/python3.11/site-packages<span class="w"> </span>/usr/local/lib/python3.11/site-packages
+
+<span class="c"># Copier l&#39;application</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+
+<span class="c"># Collecter les fichiers statiques</span>
+<span class="k">RUN</span><span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic<span class="w"> </span>--noinput
+
+<span class="c"># Exposer le port</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">8000</span>
+
+<span class="c"># Commande de démarrage</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;gunicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--bind&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0:8000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;oc_lettings_site.wsgi:application&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="docker-compose">
+<h3>Docker Compose<a class="headerlink" href="#docker-compose" title="Link to this heading"></a></h3>
+<p>Configuration pour le développement local :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG=True</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET_KEY=dev-secret-key</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALLOWED_HOSTS=localhost,127.0.0.1</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">static_volume:/app/staticfiles</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python manage.py runserver 0.0.0.0:8000</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">static_volume</span><span class="p">:</span>
+</pre></div>
+</div>
+</section>
+<section id="commandes-docker">
+<h3>Commandes Docker<a class="headerlink" href="#commandes-docker" title="Link to this heading"></a></h3>
+<p><strong>Build local</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>oc-lettings-site<span class="w"> </span>.
+</pre></div>
+</div>
+<p><strong>Run local</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">SECRET_KEY</span><span class="o">=</span>your-secret-key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">DEBUG</span><span class="o">=</span>False<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">ALLOWED_HOSTS</span><span class="o">=</span>localhost<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>oc-lettings-site
+</pre></div>
+</div>
+<p><strong>Docker Compose</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Développement</span>
+docker-compose<span class="w"> </span>up
+
+<span class="c1"># Production</span>
+docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p><strong>Push vers Docker Hub</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>tag<span class="w"> </span>oc-lettings-site<span class="w"> </span>username/oc-lettings-site:latest
+docker<span class="w"> </span>push<span class="w"> </span>username/oc-lettings-site:latest
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration-de-l-environnement">
+<h2>Configuration de l’environnement<a class="headerlink" href="#configuration-de-l-environnement" title="Link to this heading"></a></h2>
+<section id="variables-d-environnement">
+<h3>Variables d’environnement<a class="headerlink" href="#variables-d-environnement" title="Link to this heading"></a></h3>
+<p>Créer un fichier <code class="docutils literal notranslate"><span class="pre">.env</span></code> basé sur <code class="docutils literal notranslate"><span class="pre">.env.example</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Django settings</span>
+<span class="nv">SECRET_KEY</span><span class="o">=</span>your-secret-key-here
+<span class="nv">DEBUG</span><span class="o">=</span>False
+<span class="nv">ALLOWED_HOSTS</span><span class="o">=</span>your-domain.com,www.your-domain.com
+
+<span class="c1"># Database (optionnel pour PostgreSQL)</span>
+<span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://user:password@host:5432/dbname
+
+<span class="c1"># Sentry monitoring (optionnel)</span>
+<span class="nv">SENTRY_DSN</span><span class="o">=</span>https://xxx@yyy.ingest.sentry.io/zzz
+
+<span class="c1"># Static files</span>
+<span class="nv">STATIC_ROOT</span><span class="o">=</span>/app/staticfiles
+<span class="nv">STATIC_URL</span><span class="o">=</span>/static/
+</pre></div>
+</div>
+<p><strong>Générer une SECRET_KEY sécurisée</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.core.management.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_random_secret_key</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_random_secret_key</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="settings-de-production">
+<h3>Settings de production<a class="headerlink" href="#settings-de-production" title="Link to this heading"></a></h3>
+<p>Modifications dans <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decouple</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+
+<span class="c1"># Security</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">config</span><span class="p">(</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">)</span>
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="n">config</span><span class="p">(</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cast</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="n">config</span><span class="p">(</span><span class="s1">&#39;ALLOWED_HOSTS&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="c1"># HTTPS</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">DEBUG</span><span class="p">:</span>
+    <span class="n">SECURE_SSL_REDIRECT</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">SESSION_COOKIE_SECURE</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">CSRF_COOKIE_SECURE</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">SECURE_BROWSER_XSS_FILTER</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">SECURE_CONTENT_TYPE_NOSNIFF</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">X_FRAME_OPTIONS</span> <span class="o">=</span> <span class="s1">&#39;DENY&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="deploiement-sur-render">
+<h2>Déploiement sur Render<a class="headerlink" href="#deploiement-sur-render" title="Link to this heading"></a></h2>
+<section id="configuration-initiale">
+<h3>Configuration initiale<a class="headerlink" href="#configuration-initiale" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Créer un compte</strong> sur <a class="reference external" href="https://render.com">https://render.com</a></p></li>
+<li><p><strong>Connecter GitHub</strong> : Dashboard &gt; New &gt; Web Service</p></li>
+<li><p><strong>Sélectionner le repository</strong></p></li>
+<li><p><strong>Configurer le service</strong> :</p>
+<ul class="simple">
+<li><p><strong>Name</strong> : oc-lettings-site</p></li>
+<li><p><strong>Region</strong> : Frankfurt (EU) ou Oregon (US)</p></li>
+<li><p><strong>Branch</strong> : master</p></li>
+<li><p><strong>Runtime</strong> : Docker</p></li>
+<li><p><strong>Instance Type</strong> : Free ou Starter</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="configuration-des-variables">
+<h3>Configuration des variables<a class="headerlink" href="#configuration-des-variables" title="Link to this heading"></a></h3>
+<p>Dans Render Dashboard &gt; Environment :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SECRET_KEY = [generated-secret-key]
+DEBUG = False
+ALLOWED_HOSTS = oc-lettings-site.onrender.com
+SENTRY_DSN = [your-sentry-dsn]
+PYTHON_VERSION = 3.11
+</pre></div>
+</div>
+</section>
+<section id="render-yaml">
+<h3>render.yaml<a class="headerlink" href="#render-yaml" title="Link to this heading"></a></h3>
+<p>Configuration Infrastructure as Code :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oc-lettings-site</span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker</span>
+<span class="w">    </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/username/Python-OC-Lettings-FR</span>
+<span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class="w">    </span><span class="nt">healthCheckPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">    </span><span class="nt">envVars</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET_KEY</span>
+<span class="w">        </span><span class="nt">generateValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALLOWED_HOSTS</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oc-lettings-site.onrender.com</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">autoDeploy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="deploiement-manuel">
+<h3>Déploiement manuel<a class="headerlink" href="#deploiement-manuel" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Via Render CLI</span>
+render<span class="w"> </span>deploy<span class="w"> </span>--service-id<span class="w"> </span>srv-xxx
+
+<span class="c1"># Via webhook</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.render.com/deploy/srv-xxx?key<span class="o">=</span>your-api-key
+</pre></div>
+</div>
+</section>
+</section>
+<section id="deploiement-sur-d-autres-plateformes">
+<h2>Déploiement sur d’autres plateformes<a class="headerlink" href="#deploiement-sur-d-autres-plateformes" title="Link to this heading"></a></h2>
+<section id="heroku">
+<h3>Heroku<a class="headerlink" href="#heroku" title="Link to this heading"></a></h3>
+<p><strong>Procfile</strong> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>web: gunicorn oc_lettings_site.wsgi:application
+</pre></div>
+</div>
+<p><strong>Déploiement</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>heroku<span class="w"> </span>create<span class="w"> </span>oc-lettings-site
+heroku<span class="w"> </span>config:set<span class="w"> </span><span class="nv">SECRET_KEY</span><span class="o">=</span>xxx
+git<span class="w"> </span>push<span class="w"> </span>heroku<span class="w"> </span>master
+</pre></div>
+</div>
+</section>
+<section id="aws-elastic-beanstalk">
+<h3>AWS Elastic Beanstalk<a class="headerlink" href="#aws-elastic-beanstalk" title="Link to this heading"></a></h3>
+<p><strong>.ebextensions/django.config</strong> :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">option_settings</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">aws:elasticbeanstalk:container:python</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">WSGIPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oc_lettings_site.wsgi:application</span>
+</pre></div>
+</div>
+<p><strong>Déploiement</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>eb<span class="w"> </span>init<span class="w"> </span>-p<span class="w"> </span>python-3.11<span class="w"> </span>oc-lettings-site
+eb<span class="w"> </span>create<span class="w"> </span>oc-lettings-env
+eb<span class="w"> </span>deploy
+</pre></div>
+</div>
+</section>
+<section id="digitalocean-app-platform">
+<h3>DigitalOcean App Platform<a class="headerlink" href="#digitalocean-app-platform" title="Link to this heading"></a></h3>
+<p><strong>app.yaml</strong> :</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oc-lettings-site</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">  </span><span class="nt">dockerfile_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+<span class="w">  </span><span class="nt">source_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">  </span><span class="nt">http_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8000</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="monitoring-avec-sentry">
+<h2>Monitoring avec Sentry<a class="headerlink" href="#monitoring-avec-sentry" title="Link to this heading"></a></h2>
+<section id="configuration-sentry">
+<h3>Configuration Sentry<a class="headerlink" href="#configuration-sentry" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Créer un projet</strong> sur <a class="reference external" href="https://sentry.io">https://sentry.io</a></p></li>
+<li><p><strong>Choisir Django</strong> comme plateforme</p></li>
+<li><p><strong>Copier le DSN</strong></p></li>
+</ol>
+<p><strong>Integration dans settings.py</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sentry_sdk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sentry_sdk.integrations.django</span><span class="w"> </span><span class="kn">import</span> <span class="n">DjangoIntegration</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">DEBUG</span> <span class="ow">and</span> <span class="n">config</span><span class="p">(</span><span class="s1">&#39;SENTRY_DSN&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="n">sentry_sdk</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
+        <span class="n">dsn</span><span class="o">=</span><span class="n">config</span><span class="p">(</span><span class="s1">&#39;SENTRY_DSN&#39;</span><span class="p">),</span>
+        <span class="n">integrations</span><span class="o">=</span><span class="p">[</span><span class="n">DjangoIntegration</span><span class="p">()],</span>
+        <span class="n">traces_sample_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">send_default_pii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">environment</span><span class="o">=</span><span class="s1">&#39;production&#39;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="test-de-sentry">
+<h3>Test de Sentry<a class="headerlink" href="#test-de-sentry" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># views.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">trigger_error</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Vue de test pour Sentry&quot;&quot;&quot;</span>
+    <span class="n">division_by_zero</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+<section id="alertes-et-notifications">
+<h3>Alertes et notifications<a class="headerlink" href="#alertes-et-notifications" title="Link to this heading"></a></h3>
+<p>Dans Sentry Dashboard :</p>
+<ol class="arabic simple">
+<li><p>Alerts &gt; Create Alert Rule</p></li>
+<li><p>Configurer les conditions</p></li>
+<li><p>Ajouter les destinations (email, Slack, etc.)</p></li>
+</ol>
+</section>
+</section>
+<section id="rollback-et-recuperation">
+<h2>Rollback et récupération<a class="headerlink" href="#rollback-et-recuperation" title="Link to this heading"></a></h2>
+<section id="strategie-de-rollback">
+<h3>Stratégie de rollback<a class="headerlink" href="#strategie-de-rollback" title="Link to this heading"></a></h3>
+<p><strong>1. Via Git</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identifier le commit stable</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline
+
+<span class="c1"># Rollback</span>
+git<span class="w"> </span>revert<span class="w"> </span>HEAD
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+</pre></div>
+</div>
+<p><strong>2. Via Docker</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utiliser une version précédente</span>
+docker<span class="w"> </span>pull<span class="w"> </span>username/oc-lettings-site:v1.0.0
+docker<span class="w"> </span>run<span class="w"> </span>username/oc-lettings-site:v1.0.0
+</pre></div>
+</div>
+<p><strong>3. Via Render</strong> :</p>
+<ul class="simple">
+<li><p>Dashboard &gt; Settings &gt; Rollback</p></li>
+<li><p>Sélectionner un déploiement précédent</p></li>
+</ul>
+</section>
+<section id="backup-et-restauration">
+<h3>Backup et restauration<a class="headerlink" href="#backup-et-restauration" title="Link to this heading"></a></h3>
+<p><strong>Backup de la base de données</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>dumpdata<span class="w"> </span>&gt;<span class="w"> </span>backup_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.json
+
+<span class="c1"># Upload vers S3 ou autre</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>backup_*.json<span class="w"> </span>s3://bucket-name/backups/
+</pre></div>
+</div>
+<p><strong>Restauration</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Télécharger le backup</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>s3://bucket-name/backups/backup_20240101.json<span class="w"> </span>.
+
+<span class="c1"># Restaurer</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>flush<span class="w"> </span>--noinput
+python<span class="w"> </span>manage.py<span class="w"> </span>loaddata<span class="w"> </span>backup_20240101.json
+</pre></div>
+</div>
+</section>
+</section>
+<section id="checklist-de-deploiement">
+<h2>Checklist de déploiement<a class="headerlink" href="#checklist-de-deploiement" title="Link to this heading"></a></h2>
+<section id="avant-le-deploiement">
+<h3>Avant le déploiement<a class="headerlink" href="#avant-le-deploiement" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[ ] Tests passent localement</p></li>
+<li><p>[ ] Coverage &gt; 80%</p></li>
+<li><p>[ ] Linting sans erreurs</p></li>
+<li><p>[ ] Variables d’environnement configurées</p></li>
+<li><p>[ ] SECRET_KEY unique générée</p></li>
+<li><p>[ ] DEBUG=False en production</p></li>
+<li><p>[ ] ALLOWED_HOSTS configuré</p></li>
+<li><p>[ ] Base de données migrée</p></li>
+</ul>
+</section>
+<section id="pendant-le-deploiement">
+<h3>Pendant le déploiement<a class="headerlink" href="#pendant-le-deploiement" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[ ] Pipeline CI/CD vert</p></li>
+<li><p>[ ] Image Docker construite</p></li>
+<li><p>[ ] Image pushée vers registry</p></li>
+<li><p>[ ] Déploiement déclenché</p></li>
+<li><p>[ ] Health check passé</p></li>
+</ul>
+</section>
+<section id="apres-le-deploiement">
+<h3>Après le déploiement<a class="headerlink" href="#apres-le-deploiement" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[ ] Site accessible</p></li>
+<li><p>[ ] Toutes les pages fonctionnent</p></li>
+<li><p>[ ] Admin accessible</p></li>
+<li><p>[ ] Sentry connecté</p></li>
+<li><p>[ ] Logs vérifiés</p></li>
+<li><p>[ ] Performance acceptable</p></li>
+<li><p>[ ] SSL/HTTPS actif</p></li>
+<li><p>[ ] Monitoring configuré</p></li>
+</ul>
+</section>
+</section>
+<section id="commandes-utiles">
+<h2>Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Link to this heading"></a></h2>
+<section id="deploiement-rapide">
+<h3>Déploiement rapide<a class="headerlink" href="#deploiement-rapide" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script de déploiement complet</span>
+<span class="c1">#!/bin/bash</span>
+
+<span class="c1"># Tests</span>
+pytest
+flake8
+
+<span class="c1"># Git</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Deploy: </span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span><span class="s2">&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+
+<span class="c1"># Attendre le déploiement</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deployment triggered, check GitHub Actions...&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="verification-de-sante">
+<h3>Vérification de santé<a class="headerlink" href="#verification-de-sante" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check local</span>
+curl<span class="w"> </span>http://localhost:8000/
+
+<span class="c1"># Check production</span>
+curl<span class="w"> </span>https://oc-lettings-site.onrender.com/
+
+<span class="c1"># Check avec timing</span>
+curl<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;@curl-format.txt&quot;</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-s<span class="w"> </span>https://oc-lettings-site.onrender.com/
+</pre></div>
+</div>
+</section>
+<section id="logs-et-debugging">
+<h3>Logs et debugging<a class="headerlink" href="#logs-et-debugging" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Logs Docker local</span>
+docker<span class="w"> </span>logs<span class="w"> </span>container_id
+
+<span class="c1"># Logs Render</span>
+render<span class="w"> </span>logs<span class="w"> </span>--service<span class="w"> </span>srv-xxx<span class="w"> </span>--tail
+
+<span class="c1"># Logs avec filtrage</span>
+docker<span class="w"> </span>logs<span class="w"> </span>container_id<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ERROR
+</pre></div>
+</div>
+</section>
+</section>
+<section id="optimisations-de-production">
+<h2>Optimisations de production<a class="headerlink" href="#optimisations-de-production" title="Link to this heading"></a></h2>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Caching</strong> : Configurer Redis/Memcached</p></li>
+<li><p><strong>CDN</strong> : Utiliser CloudFlare pour les assets</p></li>
+<li><p><strong>Compression</strong> : Activer gzip dans nginx</p></li>
+<li><p><strong>Database pooling</strong> : Utiliser pgbouncer pour PostgreSQL</p></li>
+</ol>
+</section>
+<section id="securite">
+<h3>Sécurité<a class="headerlink" href="#securite" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>WAF</strong> : Web Application Firewall</p></li>
+<li><p><strong>Rate limiting</strong> : Limiter les requêtes</p></li>
+<li><p><strong>Backup automatique</strong> : Scripts cron</p></li>
+<li><p><strong>Audit logs</strong> : Traçabilité complète</p></li>
+<li><p><strong>Secrets rotation</strong> : Renouvellement régulier</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Guide d’utilisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, OC Lettings Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

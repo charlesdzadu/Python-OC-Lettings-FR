@@ -1,0 +1,835 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API et interfaces &mdash; OC Lettings Site 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Guide d’utilisation" href="usage.html" />
+    <link rel="prev" title="Structure de la base de données" href="database.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC Lettings Site
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Sommaire:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequis">Prérequis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-locale">Installation locale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#cloner-le-repository">1. Cloner le repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-l-environnement-virtuel">2. Créer l’environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installer-les-dependances">3. Installer les dépendances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#configuration-des-variables-d-environnement">4. Configuration des variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#appliquer-les-migrations">5. Appliquer les migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-un-superutilisateur-optionnel">6. Créer un superutilisateur (optionnel)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-avec-docker">Installation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#construire-l-image">1. Construire l’image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#lancer-l-application">2. Lancer l’application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Guide de démarrage rapide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-en-5-minutes">Démarrage en 5 minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-avec-docker">Démarrage avec Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#commandes-essentielles">Commandes essentielles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#premiers-pas">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#structure-des-urls-principales">Structure des URLs principales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#donnees-de-test">Données de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#resolution-des-problemes-courants">Résolution des problèmes courants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prochaines-etapes">Prochaines étapes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies utilisées</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#stack-technique-principale">Stack technique principale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#framework-backend">Framework Backend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#serveur-web">Serveur Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#outils-de-developpement">Outils de développement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#tests-et-qualite-du-code">Tests et qualité du code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#configuration-et-environnement">Configuration et environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#monitoring-et-debugging">Monitoring et debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#containerisation-et-deploiement">Containerisation et déploiement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#ci-cd-et-versioning">CI/CD et versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#hebergement">Hébergement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#architecture-et-patterns">Architecture et patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#patterns-utilises">Patterns utilisés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#structure-modulaire">Structure modulaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#securite">Sécurité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#mesures-de-securite-implementees">Mesures de sécurité implémentées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#versions-et-compatibilite">Versions et compatibilité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#compatibilite-testee">Compatibilité testée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#dependances-et-mises-a-jour">Dépendances et mises à jour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#gestion-des-dependances">Gestion des dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Structure de la base de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#schema-de-la-base-de-donnees">Schéma de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#diagramme-des-relations">Diagramme des relations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#modeles-de-donnees">Modèles de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-address">Model Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-letting">Model Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-profile">Model Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#tables-django-par-defaut">Tables Django par défaut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-d-authentification">Tables d’authentification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-systeme">Tables système</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#commandes-de-gestion-de-la-base-de-donnees">Commandes de gestion de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#acces-a-la-base-de-donnees">Accès à la base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migrations">Migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#gestion-des-donnees">Gestion des données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#requetes-orm-courantes">Requêtes ORM courantes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-letting">Exemples pour Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-profile">Exemples pour Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#optimisation-des-performances">Optimisation des performances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#index">Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#requetes-optimisees">Requêtes optimisées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#sauvegarde-et-restauration">Sauvegarde et restauration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#sauvegarde-complete">Sauvegarde complète</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#restauration">Restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#considerations-pour-la-production">Considérations pour la production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migration-vers-postgresql">Migration vers PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API et interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-des-urls">Architecture des URLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure-generale">Structure générale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-des-urls-principales">Configuration des URLs principales</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#endpoints-de-l-application">Endpoints de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#application-principale">Application principale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-lettings">Module Lettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles">Module Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vues-detaillees">Vues détaillées</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vue-index-page-d-accueil">Vue index (page d’accueil)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vue-lettings-index">Vue lettings.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vue-lettings-letting">Vue lettings.letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vue-profiles-index">Vue profiles.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vue-profiles-profile">Vue profiles.profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure-des-templates">Structure des templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#template-de-base">Template de base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interface-d-administration-django">Interface d’administration Django</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acces">Accès</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modeles-enregistres">Modèles enregistrés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnalites-d-administration">Fonctionnalités d’administration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-restful-extension-future">API RESTful (Extension future)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure-proposee">Structure proposée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-avec-django-rest-framework">Implémentation avec Django REST Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gestion-des-erreurs">Gestion des erreurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pages-d-erreur-personnalisees">Pages d’erreur personnalisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gestion-des-exceptions">Gestion des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#middleware-et-hooks">Middleware et hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#middleware-actifs">Middleware actifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contexte-processors">Contexte processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-des-interfaces">Tests des interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tests-unitaires-des-vues">Tests unitaires des vues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tests-d-integration">Tests d’intégration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Guide d’utilisation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#navigation-dans-l-application">Navigation dans l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#page-d-accueil">Page d’accueil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-utilisateur">Interface utilisateur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-lettings-locations">Module Lettings (Locations)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-locations">Liste des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-une-location">Détail d’une location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#navigation-dans-les-locations">Navigation dans les locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-profiles-profils">Module Profiles (Profils)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-profils">Liste des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-un-profil">Détail d’un profil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#panel-d-administration">Panel d’administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-a-l-administration">Accès à l’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-d-administration">Interface d’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-locations">Gestion des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-profils">Gestion des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#fonctionnalites-avancees">Fonctionnalités avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#commandes-de-gestion">Commandes de gestion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-au-shell-django">Accès au shell Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#creation-de-donnees-via-le-shell">Création de données via le shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance-et-nettoyage">Maintenance et nettoyage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#personnalisation">Personnalisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#modifier-les-styles">Modifier les styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#personnaliser-les-templates">Personnaliser les templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#ajouter-des-fonctionnalites">Ajouter des fonctionnalités</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#bonnes-pratiques-d-utilisation">Bonnes pratiques d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#securite">Sécurité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#problemes-courants">Problèmes courants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#support-et-aide">Support et aide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Procédures de déploiement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#vue-d-ensemble-du-deploiement">Vue d’ensemble du déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#architecture-de-deploiement">Architecture de déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#flux-de-deploiement">Flux de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#pipeline-ci-cd-avec-github-actions">Pipeline CI/CD avec GitHub Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-du-workflow">Configuration du workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-secrets-github">Configuration des secrets GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#etapes-du-pipeline">Étapes du pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#containerisation-avec-docker">Containerisation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#dockerfile">Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#docker-compose">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#commandes-docker">Commandes Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#configuration-de-l-environnement">Configuration de l’environnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#variables-d-environnement">Variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#settings-de-production">Settings de production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-render">Déploiement sur Render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-initiale">Configuration initiale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-variables">Configuration des variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#render-yaml">render.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-manuel">Déploiement manuel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-d-autres-plateformes">Déploiement sur d’autres plateformes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#heroku">Heroku</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#aws-elastic-beanstalk">AWS Elastic Beanstalk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#digitalocean-app-platform">DigitalOcean App Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#monitoring-avec-sentry">Monitoring avec Sentry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-sentry">Configuration Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#test-de-sentry">Test de Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#alertes-et-notifications">Alertes et notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#rollback-et-recuperation">Rollback et récupération</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#strategie-de-rollback">Stratégie de rollback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#backup-et-restauration">Backup et restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#checklist-de-deploiement">Checklist de déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#avant-le-deploiement">Avant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#pendant-le-deploiement">Pendant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#apres-le-deploiement">Après le déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#commandes-utiles">Commandes utiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-rapide">Déploiement rapide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#verification-de-sante">Vérification de santé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#logs-et-debugging">Logs et debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#optimisations-de-production">Optimisations de production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC Lettings Site</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API et interfaces</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-et-interfaces">
+<h1>API et interfaces<a class="headerlink" href="#api-et-interfaces" title="Link to this heading"></a></h1>
+<p>Ce document décrit l’ensemble des endpoints, vues et interfaces de l’application OC Lettings Site.</p>
+<section id="architecture-des-urls">
+<h2>Architecture des URLs<a class="headerlink" href="#architecture-des-urls" title="Link to this heading"></a></h2>
+<section id="structure-generale">
+<h3>Structure générale<a class="headerlink" href="#structure-generale" title="Link to this heading"></a></h3>
+<p>L’application suit une architecture REST-like avec des URLs sémantiques :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/                           # Page d&#39;accueil
+├── lettings/              # Module des locations
+│   ├── /                  # Liste des locations
+│   └── /&lt;id&gt;/            # Détail d&#39;une location
+├── profiles/              # Module des profils
+│   ├── /                  # Liste des profils
+│   └── /&lt;username&gt;/      # Détail d&#39;un profil
+└── admin/                 # Interface d&#39;administration
+</pre></div>
+</div>
+</section>
+<section id="configuration-des-urls-principales">
+<h3>Configuration des URLs principales<a class="headerlink" href="#configuration-des-urls-principales" title="Link to this heading"></a></h3>
+<p><strong>oc_lettings_site/urls.py</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;lettings/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;lettings.urls&#39;</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;profiles/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;profiles.urls&#39;</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="endpoints-de-l-application">
+<h2>Endpoints de l’application<a class="headerlink" href="#endpoints-de-l-application" title="Link to this heading"></a></h2>
+<section id="application-principale">
+<h3>Application principale<a class="headerlink" href="#application-principale" title="Link to this heading"></a></h3>
+<p><strong>GET /</strong></p>
+<ul class="simple">
+<li><p><strong>Description</strong> : Page d’accueil de l’application</p></li>
+<li><p><strong>Vue</strong> : <code class="docutils literal notranslate"><span class="pre">oc_lettings_site.views.index</span></code></p></li>
+<li><p><strong>Template</strong> : <code class="docutils literal notranslate"><span class="pre">index.html</span></code></p></li>
+<li><p><strong>Contexte</strong> : Aucun</p></li>
+<li><p><strong>Response</strong> : HTML</p></li>
+</ul>
+<p>Exemple de réponse :</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome to Holiday Homes<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/profiles/&quot;</span><span class="p">&gt;</span>Profiles<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/lettings/&quot;</span><span class="p">&gt;</span>Lettings<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="module-lettings">
+<h3>Module Lettings<a class="headerlink" href="#module-lettings" title="Link to this heading"></a></h3>
+<p><strong>GET /lettings/</strong></p>
+<ul>
+<li><p><strong>Description</strong> : Liste toutes les locations disponibles</p></li>
+<li><p><strong>Vue</strong> : <code class="docutils literal notranslate"><span class="pre">lettings.views.index</span></code></p></li>
+<li><p><strong>Template</strong> : <code class="docutils literal notranslate"><span class="pre">lettings/index.html</span></code></p></li>
+<li><p><strong>Contexte</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;lettings_list&#39;</span><span class="p">:</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Response</strong> : HTML avec liste des locations</p></li>
+</ul>
+<p><strong>GET /lettings/&lt;int:letting_id&gt;/</strong></p>
+<ul>
+<li><p><strong>Description</strong> : Affiche le détail d’une location spécifique</p></li>
+<li><p><strong>Vue</strong> : <code class="docutils literal notranslate"><span class="pre">lettings.views.letting</span></code></p></li>
+<li><p><strong>Template</strong> : <code class="docutils literal notranslate"><span class="pre">lettings/letting.html</span></code></p></li>
+<li><p><strong>Paramètres</strong> :
+- <code class="docutils literal notranslate"><span class="pre">letting_id</span></code> (int) : ID de la location</p></li>
+<li><p><strong>Contexte</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+    <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="n">letting</span><span class="o">.</span><span class="n">address</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Erreurs</strong> :
+- 404 : Si la location n’existe pas</p></li>
+<li><p><strong>Response</strong> : HTML avec détails de la location</p></li>
+</ul>
+</section>
+<section id="module-profiles">
+<h3>Module Profiles<a class="headerlink" href="#module-profiles" title="Link to this heading"></a></h3>
+<p><strong>GET /profiles/</strong></p>
+<ul>
+<li><p><strong>Description</strong> : Liste tous les profils d’utilisateurs</p></li>
+<li><p><strong>Vue</strong> : <code class="docutils literal notranslate"><span class="pre">profiles.views.index</span></code></p></li>
+<li><p><strong>Template</strong> : <code class="docutils literal notranslate"><span class="pre">profiles/index.html</span></code></p></li>
+<li><p><strong>Contexte</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;profiles_list&#39;</span><span class="p">:</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Response</strong> : HTML avec liste des profils</p></li>
+</ul>
+<p><strong>GET /profiles/&lt;str:username&gt;/</strong></p>
+<ul>
+<li><p><strong>Description</strong> : Affiche le détail d’un profil utilisateur</p></li>
+<li><p><strong>Vue</strong> : <code class="docutils literal notranslate"><span class="pre">profiles.views.profile</span></code></p></li>
+<li><p><strong>Template</strong> : <code class="docutils literal notranslate"><span class="pre">profiles/profile.html</span></code></p></li>
+<li><p><strong>Paramètres</strong> :
+- <code class="docutils literal notranslate"><span class="pre">username</span></code> (str) : Nom d’utilisateur</p></li>
+<li><p><strong>Contexte</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;profile&#39;</span><span class="p">:</span> <span class="n">profile</span><span class="p">,</span>
+    <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">profile</span><span class="o">.</span><span class="n">user</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Erreurs</strong> :
+- 404 : Si le profil n’existe pas</p></li>
+<li><p><strong>Response</strong> : HTML avec détails du profil</p></li>
+</ul>
+</section>
+</section>
+<section id="vues-detaillees">
+<h2>Vues détaillées<a class="headerlink" href="#vues-detaillees" title="Link to this heading"></a></h2>
+<section id="vue-index-page-d-accueil">
+<h3>Vue index (page d’accueil)<a class="headerlink" href="#vue-index-page-d-accueil" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vue de la page d&#39;accueil.</span>
+<span class="sd">    Affiche les liens vers les sections principales.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="vue-lettings-index">
+<h3>Vue lettings.index<a class="headerlink" href="#vue-lettings-index" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Liste toutes les locations.</span>
+<span class="sd">    Utilise la pagination si nécessaire.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lettings_list</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lettings_list&#39;</span><span class="p">:</span> <span class="n">lettings_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;lettings/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="vue-lettings-letting">
+<h3>Vue lettings.letting<a class="headerlink" href="#vue-lettings-letting" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">letting</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">letting_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Affiche une location spécifique avec son adresse.</span>
+<span class="sd">    Lève Http404 si non trouvée.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">letting</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">letting_id</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Letting</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s2">&quot;Letting not found&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="n">letting</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;lettings/letting.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="vue-profiles-index">
+<h3>Vue profiles.index<a class="headerlink" href="#vue-profiles-index" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Liste tous les profils utilisateur.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">profiles_list</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;profiles_list&#39;</span><span class="p">:</span> <span class="n">profiles_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;profiles/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="vue-profiles-profile">
+<h3>Vue profiles.profile<a class="headerlink" href="#vue-profiles-profile" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Affiche un profil utilisateur spécifique.</span>
+<span class="sd">    Lève Http404 si non trouvé.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user__username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Profile</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s2">&quot;Profile not found&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;profile&#39;</span><span class="p">:</span> <span class="n">profile</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;profiles/profile.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Link to this heading"></a></h2>
+<section id="structure-des-templates">
+<h3>Structure des templates<a class="headerlink" href="#structure-des-templates" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>templates/
+├── base.html              # Template de base
+├── index.html             # Page d&#39;accueil
+├── 404.html               # Page d&#39;erreur 404
+├── 500.html               # Page d&#39;erreur 500
+├── lettings/
+│   ├── index.html         # Liste des locations
+│   └── letting.html       # Détail d&#39;une location
+└── profiles/
+    ├── index.html         # Liste des profils
+    └── profile.html       # Détail d&#39;un profil
+</pre></div>
+</div>
+</section>
+<section id="template-de-base">
+<h3>Template de base<a class="headerlink" href="#template-de-base" title="Link to this heading"></a></h3>
+<p><strong>base.html</strong> :</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}Holiday Homes{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;index&#39; %}&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;lettings:index&#39; %}&quot;</span><span class="p">&gt;</span>Lettings<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;profiles:index&#39; %}&quot;</span><span class="p">&gt;</span>Profiles<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+        {% block content %}
+        {% endblock content %}
+    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="interface-d-administration-django">
+<h2>Interface d’administration Django<a class="headerlink" href="#interface-d-administration-django" title="Link to this heading"></a></h2>
+<section id="acces">
+<h3>Accès<a class="headerlink" href="#acces" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>URL</strong> : <code class="docutils literal notranslate"><span class="pre">/admin/</span></code></p></li>
+<li><p><strong>Authentification</strong> : Requise (superuser ou staff)</p></li>
+<li><p><strong>Utilisateur par défaut</strong> : admin / Abc1234!</p></li>
+</ul>
+</section>
+<section id="modeles-enregistres">
+<h3>Modèles enregistrés<a class="headerlink" href="#modeles-enregistres" title="Link to this heading"></a></h3>
+<p><strong>lettings/admin.py</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Letting</span><span class="p">,</span> <span class="n">Address</span>
+
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Address</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AddressAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;street&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;zip_code&#39;</span><span class="p">)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;street&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">)</span>
+
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Letting</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LettingAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;get_address&#39;</span><span class="p">)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_address</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+    <span class="n">get_address</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Address&#39;</span>
+</pre></div>
+</div>
+<p><strong>profiles/admin.py</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profile</span>
+
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Profile</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite_city&#39;</span><span class="p">)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;favorite_city&#39;</span><span class="p">,)</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user__username&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite_city&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fonctionnalites-d-administration">
+<h3>Fonctionnalités d’administration<a class="headerlink" href="#fonctionnalites-d-administration" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>CRUD complet</strong> : Créer, lire, modifier, supprimer</p></li>
+<li><p><strong>Recherche</strong> : Par titre, nom d’utilisateur, ville</p></li>
+<li><p><strong>Filtres</strong> : Par état, ville favorite</p></li>
+<li><p><strong>Actions en masse</strong> : Suppression multiple</p></li>
+<li><p><strong>Historique</strong> : Journal des modifications</p></li>
+<li><p><strong>Permissions</strong> : Gestion fine des droits</p></li>
+</ul>
+</section>
+</section>
+<section id="api-restful-extension-future">
+<h2>API RESTful (Extension future)<a class="headerlink" href="#api-restful-extension-future" title="Link to this heading"></a></h2>
+<section id="structure-proposee">
+<h3>Structure proposée<a class="headerlink" href="#structure-proposee" title="Link to this heading"></a></h3>
+<p>Pour une future API REST, voici la structure recommandée :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/api/v1/
+├── lettings/
+│   ├── GET    /           # Liste des locations
+│   ├── POST   /           # Créer une location
+│   ├── GET    /{id}/      # Détail d&#39;une location
+│   ├── PUT    /{id}/      # Modifier une location
+│   └── DELETE /{id}/      # Supprimer une location
+└── profiles/
+    ├── GET    /           # Liste des profils
+    ├── POST   /           # Créer un profil
+    ├── GET    /{id}/      # Détail d&#39;un profil
+    ├── PUT    /{id}/      # Modifier un profil
+    └── DELETE /{id}/      # Supprimer un profil
+</pre></div>
+</div>
+</section>
+<section id="implementation-avec-django-rest-framework">
+<h3>Implémentation avec Django REST Framework<a class="headerlink" href="#implementation-avec-django-rest-framework" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># serializers.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Letting</span><span class="p">,</span> <span class="n">Profile</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LettingSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Letting</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;__all__&#39;</span>
+
+<span class="c1"># viewsets.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">viewsets</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LettingViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">LettingSerializer</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gestion-des-erreurs">
+<h2>Gestion des erreurs<a class="headerlink" href="#gestion-des-erreurs" title="Link to this heading"></a></h2>
+<section id="pages-d-erreur-personnalisees">
+<h3>Pages d’erreur personnalisées<a class="headerlink" href="#pages-d-erreur-personnalisees" title="Link to this heading"></a></h3>
+<p><strong>404 - Page non trouvée</strong> :</p>
+<ul class="simple">
+<li><p>Template : <code class="docutils literal notranslate"><span class="pre">templates/404.html</span></code></p></li>
+<li><p>Vue : Automatique Django</p></li>
+<li><p>Contexte : URL demandée</p></li>
+</ul>
+<p><strong>500 - Erreur serveur</strong> :</p>
+<ul class="simple">
+<li><p>Template : <code class="docutils literal notranslate"><span class="pre">templates/500.html</span></code></p></li>
+<li><p>Vue : Automatique Django</p></li>
+<li><p>Logging : Via Sentry</p></li>
+</ul>
+</section>
+<section id="gestion-des-exceptions">
+<h3>Gestion des exceptions<a class="headerlink" href="#gestion-des-exceptions" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># views.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">Http404</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_object_or_404</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">letting</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">letting_id</span><span class="p">):</span>
+    <span class="c1"># Option 1: Gestion manuelle</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">letting</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">letting_id</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Letting</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s2">&quot;Letting not found&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Option 2: Raccourci Django</span>
+    <span class="n">letting</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Letting</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">letting_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="middleware-et-hooks">
+<h2>Middleware et hooks<a class="headerlink" href="#middleware-et-hooks" title="Link to this heading"></a></h2>
+<section id="middleware-actifs">
+<h3>Middleware actifs<a class="headerlink" href="#middleware-actifs" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.middleware.security.SecurityMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;whitenoise.middleware.WhiteNoiseMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.csrf.CsrfViewMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages.middleware.MessageMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="contexte-processors">
+<h3>Contexte processors<a class="headerlink" href="#contexte-processors" title="Link to this heading"></a></h3>
+<p>Variables disponibles dans tous les templates :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">request</span></code> : Objet de requête HTTP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code> : Utilisateur connecté</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">messages</span></code> : Messages Django</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> : URL des fichiers statiques</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MEDIA_URL</span></code> : URL des fichiers media</p></li>
+</ul>
+</section>
+</section>
+<section id="tests-des-interfaces">
+<h2>Tests des interfaces<a class="headerlink" href="#tests-des-interfaces" title="Link to this heading"></a></h2>
+<section id="tests-unitaires-des-vues">
+<h3>Tests unitaires des vues<a class="headerlink" href="#tests-unitaires-des-vues" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.test</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">Client</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">reverse</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LettingViewsTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_index_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;lettings:index&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&quot;Lettings&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_letting_detail_404</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/lettings/999/&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tests-d-integration">
+<h3>Tests d’intégration<a class="headerlink" href="#tests-d-integration" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.test</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransactionTestCase</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">IntegrationTest</span><span class="p">(</span><span class="n">TransactionTestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_full_workflow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Créer des données</span>
+        <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="n">letting</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+        <span class="c1"># Tester la navigation</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;Lettings&#39;</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/lettings/&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="database.html" class="btn btn-neutral float-left" title="Structure de la base de données" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Guide d’utilisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, OC Lettings Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

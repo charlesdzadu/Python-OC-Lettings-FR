@@ -1,0 +1,839 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide d’utilisation &mdash; OC Lettings Site 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Procédures de déploiement" href="deployment.html" />
+    <link rel="prev" title="API et interfaces" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC Lettings Site
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Sommaire:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequis">Prérequis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-locale">Installation locale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#cloner-le-repository">1. Cloner le repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-l-environnement-virtuel">2. Créer l’environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installer-les-dependances">3. Installer les dépendances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#configuration-des-variables-d-environnement">4. Configuration des variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#appliquer-les-migrations">5. Appliquer les migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-un-superutilisateur-optionnel">6. Créer un superutilisateur (optionnel)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-avec-docker">Installation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#construire-l-image">1. Construire l’image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#lancer-l-application">2. Lancer l’application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Guide de démarrage rapide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-en-5-minutes">Démarrage en 5 minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-avec-docker">Démarrage avec Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#commandes-essentielles">Commandes essentielles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#premiers-pas">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#structure-des-urls-principales">Structure des URLs principales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#donnees-de-test">Données de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#resolution-des-problemes-courants">Résolution des problèmes courants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prochaines-etapes">Prochaines étapes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies utilisées</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#stack-technique-principale">Stack technique principale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#framework-backend">Framework Backend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#serveur-web">Serveur Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#outils-de-developpement">Outils de développement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#tests-et-qualite-du-code">Tests et qualité du code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#configuration-et-environnement">Configuration et environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#monitoring-et-debugging">Monitoring et debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#containerisation-et-deploiement">Containerisation et déploiement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#ci-cd-et-versioning">CI/CD et versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#hebergement">Hébergement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#architecture-et-patterns">Architecture et patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#patterns-utilises">Patterns utilisés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#structure-modulaire">Structure modulaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#securite">Sécurité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#mesures-de-securite-implementees">Mesures de sécurité implémentées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#versions-et-compatibilite">Versions et compatibilité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#compatibilite-testee">Compatibilité testée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#dependances-et-mises-a-jour">Dépendances et mises à jour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#gestion-des-dependances">Gestion des dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Structure de la base de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#schema-de-la-base-de-donnees">Schéma de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#diagramme-des-relations">Diagramme des relations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#modeles-de-donnees">Modèles de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-address">Model Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-letting">Model Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-profile">Model Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#tables-django-par-defaut">Tables Django par défaut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-d-authentification">Tables d’authentification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-systeme">Tables système</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#commandes-de-gestion-de-la-base-de-donnees">Commandes de gestion de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#acces-a-la-base-de-donnees">Accès à la base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migrations">Migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#gestion-des-donnees">Gestion des données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#requetes-orm-courantes">Requêtes ORM courantes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-letting">Exemples pour Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-profile">Exemples pour Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#optimisation-des-performances">Optimisation des performances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#index">Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#requetes-optimisees">Requêtes optimisées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#sauvegarde-et-restauration">Sauvegarde et restauration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#sauvegarde-complete">Sauvegarde complète</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#restauration">Restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#considerations-pour-la-production">Considérations pour la production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migration-vers-postgresql">Migration vers PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API et interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#architecture-des-urls">Architecture des URLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-generale">Structure générale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#configuration-des-urls-principales">Configuration des URLs principales</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#endpoints-de-l-application">Endpoints de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#application-principale">Application principale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-lettings">Module Lettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-profiles">Module Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#vues-detaillees">Vues détaillées</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-index-page-d-accueil">Vue index (page d’accueil)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-index">Vue lettings.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-letting">Vue lettings.letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-index">Vue profiles.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-profile">Vue profiles.profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-des-templates">Structure des templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#template-de-base">Template de base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#interface-d-administration-django">Interface d’administration Django</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#acces">Accès</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#modeles-enregistres">Modèles enregistrés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#fonctionnalites-d-administration">Fonctionnalités d’administration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-restful-extension-future">API RESTful (Extension future)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-proposee">Structure proposée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#implementation-avec-django-rest-framework">Implémentation avec Django REST Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#gestion-des-erreurs">Gestion des erreurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#pages-d-erreur-personnalisees">Pages d’erreur personnalisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#gestion-des-exceptions">Gestion des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#middleware-et-hooks">Middleware et hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#middleware-actifs">Middleware actifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#contexte-processors">Contexte processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tests-des-interfaces">Tests des interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-unitaires-des-vues">Tests unitaires des vues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-d-integration">Tests d’intégration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide d’utilisation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#navigation-dans-l-application">Navigation dans l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#page-d-accueil">Page d’accueil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-utilisateur">Interface utilisateur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lettings-locations">Module Lettings (Locations)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-locations">Liste des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detail-d-une-location">Détail d’une location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-dans-les-locations">Navigation dans les locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles-profils">Module Profiles (Profils)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#liste-des-profils">Liste des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detail-d-un-profil">Détail d’un profil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#panel-d-administration">Panel d’administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acces-a-l-administration">Accès à l’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-d-administration">Interface d’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gestion-des-locations">Gestion des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gestion-des-profils">Gestion des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonctionnalites-avancees">Fonctionnalités avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commandes-de-gestion">Commandes de gestion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acces-au-shell-django">Accès au shell Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creation-de-donnees-via-le-shell">Création de données via le shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maintenance-et-nettoyage">Maintenance et nettoyage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#personnalisation">Personnalisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifier-les-styles">Modifier les styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#personnaliser-les-templates">Personnaliser les templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ajouter-des-fonctionnalites">Ajouter des fonctionnalités</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bonnes-pratiques-d-utilisation">Bonnes pratiques d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#securite">Sécurité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#problemes-courants">Problèmes courants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#support-et-aide">Support et aide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Procédures de déploiement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#vue-d-ensemble-du-deploiement">Vue d’ensemble du déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#architecture-de-deploiement">Architecture de déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#flux-de-deploiement">Flux de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#pipeline-ci-cd-avec-github-actions">Pipeline CI/CD avec GitHub Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-du-workflow">Configuration du workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-secrets-github">Configuration des secrets GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#etapes-du-pipeline">Étapes du pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#containerisation-avec-docker">Containerisation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#dockerfile">Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#docker-compose">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#commandes-docker">Commandes Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#configuration-de-l-environnement">Configuration de l’environnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#variables-d-environnement">Variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#settings-de-production">Settings de production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-render">Déploiement sur Render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-initiale">Configuration initiale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-variables">Configuration des variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#render-yaml">render.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-manuel">Déploiement manuel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-d-autres-plateformes">Déploiement sur d’autres plateformes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#heroku">Heroku</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#aws-elastic-beanstalk">AWS Elastic Beanstalk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#digitalocean-app-platform">DigitalOcean App Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#monitoring-avec-sentry">Monitoring avec Sentry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-sentry">Configuration Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#test-de-sentry">Test de Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#alertes-et-notifications">Alertes et notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#rollback-et-recuperation">Rollback et récupération</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#strategie-de-rollback">Stratégie de rollback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#backup-et-restauration">Backup et restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#checklist-de-deploiement">Checklist de déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#avant-le-deploiement">Avant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#pendant-le-deploiement">Pendant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#apres-le-deploiement">Après le déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#commandes-utiles">Commandes utiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-rapide">Déploiement rapide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#verification-de-sante">Vérification de santé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#logs-et-debugging">Logs et debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#optimisations-de-production">Optimisations de production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC Lettings Site</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guide d’utilisation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guide-d-utilisation">
+<h1>Guide d’utilisation<a class="headerlink" href="#guide-d-utilisation" title="Link to this heading"></a></h1>
+<p>Ce guide détaille l’utilisation complète de l’application OC Lettings Site, tant pour les utilisateurs finaux que pour les administrateurs.</p>
+<section id="navigation-dans-l-application">
+<h2>Navigation dans l’application<a class="headerlink" href="#navigation-dans-l-application" title="Link to this heading"></a></h2>
+<section id="page-d-accueil">
+<h3>Page d’accueil<a class="headerlink" href="#page-d-accueil" title="Link to this heading"></a></h3>
+<p>La page d’accueil est le point d’entrée principal de l’application.</p>
+<p><strong>Accès</strong> : <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a></p>
+<p><strong>Fonctionnalités disponibles</strong> :</p>
+<ul class="simple">
+<li><p><strong>Lettings</strong> : Accès à la liste des locations</p></li>
+<li><p><strong>Profiles</strong> : Accès à la liste des profils utilisateurs</p></li>
+<li><p><strong>Admin</strong> : Accès au panel d’administration (authentification requise)</p></li>
+</ul>
+</section>
+<section id="interface-utilisateur">
+<h3>Interface utilisateur<a class="headerlink" href="#interface-utilisateur" title="Link to this heading"></a></h3>
+<p>L’interface est conçue pour être simple et intuitive :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────┐
+│        Holiday Homes                │
+│                                     │
+│   [Lettings]     [Profiles]        │
+│                                     │
+│   Welcome to Holiday Homes          │
+└─────────────────────────────────────┘
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-lettings-locations">
+<h2>Module Lettings (Locations)<a class="headerlink" href="#module-lettings-locations" title="Link to this heading"></a></h2>
+<section id="liste-des-locations">
+<h3>Liste des locations<a class="headerlink" href="#liste-des-locations" title="Link to this heading"></a></h3>
+<p><strong>URL</strong> : <a class="reference external" href="http://localhost:8000/lettings/">http://localhost:8000/lettings/</a></p>
+<p>Cette page affiche toutes les locations disponibles sous forme de liste cliquable.</p>
+<p><strong>Fonctionnalités</strong> :</p>
+<ul class="simple">
+<li><p>Visualisation de toutes les locations</p></li>
+<li><p>Clic sur une location pour voir les détails</p></li>
+<li><p>Navigation vers la page d’accueil</p></li>
+</ul>
+<p><strong>Exemple d’affichage</strong> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Lettings
+
+• Underground Hygge
+• Soutane, King
+• The Gingerbread House
+• A Dome on a Dome
+• Infinite Cubes
+</pre></div>
+</div>
+</section>
+<section id="detail-d-une-location">
+<h3>Détail d’une location<a class="headerlink" href="#detail-d-une-location" title="Link to this heading"></a></h3>
+<p><strong>URL</strong> : <a class="reference external" href="http://localhost:8000/lettings">http://localhost:8000/lettings</a>/&lt;id&gt;/</p>
+<p>Affiche les informations complètes d’une location spécifique.</p>
+<p><strong>Informations affichées</strong> :</p>
+<ul class="simple">
+<li><p>Titre de la location</p></li>
+<li><p>Adresse complète :
+- Numéro et rue
+- Ville
+- État (code à 2 lettres)
+- Code postal
+- Code pays ISO</p></li>
+</ul>
+<p><strong>Exemple</strong> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Underground Hygge
+
+Address:
+123 Main Street
+New York, NY 10001
+USA
+
+[Back to Lettings List]
+</pre></div>
+</div>
+</section>
+<section id="navigation-dans-les-locations">
+<h3>Navigation dans les locations<a class="headerlink" href="#navigation-dans-les-locations" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Depuis la page d’accueil, cliquer sur “Lettings”</p></li>
+<li><p>Parcourir la liste des locations disponibles</p></li>
+<li><p>Cliquer sur une location pour voir ses détails</p></li>
+<li><p>Utiliser “Back” pour revenir à la liste</p></li>
+<li><p>Utiliser “Home” pour revenir à l’accueil</p></li>
+</ol>
+</section>
+</section>
+<section id="module-profiles-profils">
+<h2>Module Profiles (Profils)<a class="headerlink" href="#module-profiles-profils" title="Link to this heading"></a></h2>
+<section id="liste-des-profils">
+<h3>Liste des profils<a class="headerlink" href="#liste-des-profils" title="Link to this heading"></a></h3>
+<p><strong>URL</strong> : <a class="reference external" href="http://localhost:8000/profiles/">http://localhost:8000/profiles/</a></p>
+<p>Affiche tous les profils d’utilisateurs enregistrés.</p>
+<p><strong>Fonctionnalités</strong> :</p>
+<ul class="simple">
+<li><p>Liste de tous les utilisateurs</p></li>
+<li><p>Clic sur un profil pour voir les détails</p></li>
+<li><p>Navigation vers la page d’accueil</p></li>
+</ul>
+<p><strong>Exemple d’affichage</strong> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Profiles
+
+• HeadlinesGazer
+• DavWin
+• AirWow
+• 4meRomance
+</pre></div>
+</div>
+</section>
+<section id="detail-d-un-profil">
+<h3>Détail d’un profil<a class="headerlink" href="#detail-d-un-profil" title="Link to this heading"></a></h3>
+<p><strong>URL</strong> : <a class="reference external" href="http://localhost:8000/profiles">http://localhost:8000/profiles</a>/&lt;username&gt;/</p>
+<p>Affiche les informations du profil utilisateur.</p>
+<p><strong>Informations affichées</strong> :</p>
+<ul class="simple">
+<li><p>Nom d’utilisateur</p></li>
+<li><p>Prénom et nom (si renseignés)</p></li>
+<li><p>Email</p></li>
+<li><p>Ville favorite</p></li>
+</ul>
+<p><strong>Exemple</strong> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Profile: HeadlinesGazer
+
+First name: Jamie
+Last name: Lal
+Email: jssssss33@acee9.live
+Favorite city: Buenos Aires
+
+[Back to Profiles List]
+</pre></div>
+</div>
+</section>
+</section>
+<section id="panel-d-administration">
+<h2>Panel d’administration<a class="headerlink" href="#panel-d-administration" title="Link to this heading"></a></h2>
+<section id="acces-a-l-administration">
+<h3>Accès à l’administration<a class="headerlink" href="#acces-a-l-administration" title="Link to this heading"></a></h3>
+<p><strong>URL</strong> : <a class="reference external" href="http://localhost:8000/admin/">http://localhost:8000/admin/</a></p>
+<p><strong>Identifiants par défaut</strong> :</p>
+<ul class="simple">
+<li><p>Username : <code class="docutils literal notranslate"><span class="pre">admin</span></code></p></li>
+<li><p>Password : <code class="docutils literal notranslate"><span class="pre">Abc1234!</span></code></p></li>
+</ul>
+<p><strong>Première connexion</strong> :</p>
+<ol class="arabic simple">
+<li><p>Naviguer vers /admin/</p></li>
+<li><p>Entrer les identifiants</p></li>
+<li><p>Cliquer sur “Log in”</p></li>
+</ol>
+</section>
+<section id="interface-d-administration">
+<h3>Interface d’administration<a class="headerlink" href="#interface-d-administration" title="Link to this heading"></a></h3>
+<p>Le panel d’administration Django offre une interface complète pour gérer les données.</p>
+<p><strong>Sections disponibles</strong> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Django administration
+
+AUTHENTICATION AND AUTHORIZATION
+├── Groups
+└── Users
+
+LETTINGS
+├── Addresses
+└── Lettings
+
+PROFILES
+└── Profiles
+</pre></div>
+</div>
+</section>
+<section id="gestion-des-locations">
+<h3>Gestion des locations<a class="headerlink" href="#gestion-des-locations" title="Link to this heading"></a></h3>
+<p><strong>Ajouter une location</strong> :</p>
+<ol class="arabic simple">
+<li><p>Cliquer sur “Lettings” &gt; “Add”</p></li>
+<li><p>Remplir le formulaire :
+- Title : Nom de la location
+- Address : Sélectionner ou créer une adresse</p></li>
+<li><p>Cliquer sur “Save”</p></li>
+</ol>
+<p><strong>Créer une adresse</strong> :</p>
+<ol class="arabic simple">
+<li><p>Cliquer sur “Addresses” &gt; “Add”</p></li>
+<li><p>Remplir tous les champs :
+- Number : Numéro de rue (max 9999)
+- Street : Nom de la rue
+- City : Ville
+- State : Code état (2 lettres)
+- Zip code : Code postal (max 99999)
+- Country ISO code : Code pays (3 lettres)</p></li>
+<li><p>Cliquer sur “Save”</p></li>
+</ol>
+<p><strong>Modifier une location</strong> :</p>
+<ol class="arabic simple">
+<li><p>Dans la liste, cliquer sur la location</p></li>
+<li><p>Modifier les champs souhaités</p></li>
+<li><p>Cliquer sur “Save”</p></li>
+</ol>
+<p><strong>Supprimer une location</strong> :</p>
+<ol class="arabic simple">
+<li><p>Sélectionner la/les location(s)</p></li>
+<li><p>Choisir “Delete selected lettings”</p></li>
+<li><p>Confirmer la suppression</p></li>
+</ol>
+</section>
+<section id="gestion-des-profils">
+<h3>Gestion des profils<a class="headerlink" href="#gestion-des-profils" title="Link to this heading"></a></h3>
+<p><strong>Créer un profil</strong> :</p>
+<ol class="arabic simple">
+<li><p>D’abord créer un utilisateur dans “Users”</p></li>
+<li><p>Puis aller dans “Profiles” &gt; “Add”</p></li>
+<li><p>Sélectionner l’utilisateur</p></li>
+<li><p>Renseigner la ville favorite (optionnel)</p></li>
+<li><p>Cliquer sur “Save”</p></li>
+</ol>
+<p><strong>Modifier un profil</strong> :</p>
+<ol class="arabic simple">
+<li><p>Cliquer sur le profil dans la liste</p></li>
+<li><p>Modifier la ville favorite</p></li>
+<li><p>Cliquer sur “Save”</p></li>
+</ol>
+<p><strong>Gestion des utilisateurs</strong> :</p>
+<ol class="arabic simple">
+<li><p>Aller dans “Users”</p></li>
+<li><p>Créer/modifier/supprimer des utilisateurs</p></li>
+<li><p>Gérer les permissions et groupes</p></li>
+</ol>
+</section>
+<section id="fonctionnalites-avancees">
+<h3>Fonctionnalités avancées<a class="headerlink" href="#fonctionnalites-avancees" title="Link to this heading"></a></h3>
+<p><strong>Recherche</strong> :</p>
+<ul class="simple">
+<li><p>Utiliser la barre de recherche pour filtrer</p></li>
+<li><p>Recherche par titre, username, ville</p></li>
+</ul>
+<p><strong>Filtres</strong> :</p>
+<ul class="simple">
+<li><p>Filtrer par état (locations)</p></li>
+<li><p>Filtrer par ville favorite (profils)</p></li>
+<li><p>Filtrer par statut (utilisateurs)</p></li>
+</ul>
+<p><strong>Actions en masse</strong> :</p>
+<ol class="arabic simple">
+<li><p>Cocher plusieurs éléments</p></li>
+<li><p>Sélectionner l’action dans le menu</p></li>
+<li><p>Cliquer sur “Go”</p></li>
+</ol>
+<p><strong>Export de données</strong> :</p>
+<ul class="simple">
+<li><p>Les données peuvent être exportées via le shell Django</p></li>
+<li><p>Voir la section “Commandes de gestion”</p></li>
+</ul>
+</section>
+</section>
+<section id="commandes-de-gestion">
+<h2>Commandes de gestion<a class="headerlink" href="#commandes-de-gestion" title="Link to this heading"></a></h2>
+<section id="acces-au-shell-django">
+<h3>Accès au shell Django<a class="headerlink" href="#acces-au-shell-django" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>shell
+</pre></div>
+</div>
+<p><strong>Exemples d’utilisation</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importer les modèles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lettings.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Letting</span><span class="p">,</span> <span class="n">Address</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">profiles.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">User</span>
+
+<span class="c1"># Compter les objets</span>
+<span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1"># Lister les locations</span>
+<span class="k">for</span> <span class="n">letting</span> <span class="ow">in</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">letting</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">city</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rechercher un profil</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user__username</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">favorite_city</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creation-de-donnees-via-le-shell">
+<h3>Création de données via le shell<a class="headerlink" href="#creation-de-donnees-via-le-shell" title="Link to this heading"></a></h3>
+<p><strong>Créer une location complète</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Créer une adresse</span>
+<span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">number</span><span class="o">=</span><span class="mi">456</span><span class="p">,</span>
+    <span class="n">street</span><span class="o">=</span><span class="s2">&quot;Python Street&quot;</span><span class="p">,</span>
+    <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Django City&quot;</span><span class="p">,</span>
+    <span class="n">state</span><span class="o">=</span><span class="s2">&quot;DJ&quot;</span><span class="p">,</span>
+    <span class="n">zip_code</span><span class="o">=</span><span class="mi">12345</span><span class="p">,</span>
+    <span class="n">country_iso_code</span><span class="o">=</span><span class="s2">&quot;USA&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Créer la location</span>
+<span class="n">letting</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Django Paradise&quot;</span><span class="p">,</span>
+    <span class="n">address</span><span class="o">=</span><span class="n">address</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created: </span><span class="si">{</span><span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">letting</span><span class="o">.</span><span class="n">address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Créer un profil utilisateur</strong> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Créer un utilisateur</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
+    <span class="n">username</span><span class="o">=</span><span class="s1">&#39;johndoe&#39;</span><span class="p">,</span>
+    <span class="n">email</span><span class="o">=</span><span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;securepassword123&#39;</span><span class="p">,</span>
+    <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">,</span>
+    <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Créer le profil associé</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span>
+    <span class="n">favorite_city</span><span class="o">=</span><span class="s1">&#39;Paris&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created profile for </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="maintenance-et-nettoyage">
+<h3>Maintenance et nettoyage<a class="headerlink" href="#maintenance-et-nettoyage" title="Link to this heading"></a></h3>
+<p><strong>Nettoyer les sessions expirées</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>clearsessions
+</pre></div>
+</div>
+<p><strong>Vérifier la base de données</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>dbshell
+.tables
+SELECT<span class="w"> </span>COUNT<span class="o">(</span>*<span class="o">)</span><span class="w"> </span>FROM<span class="w"> </span>lettings_letting<span class="p">;</span>
+.quit
+</pre></div>
+</div>
+<p><strong>Réinitialiser les données de test</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sauvegarder d&#39;abord</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>dumpdata<span class="w"> </span>&gt;<span class="w"> </span>backup.json
+
+<span class="c1"># Réinitialiser</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>flush
+python<span class="w"> </span>manage.py<span class="w"> </span>loaddata<span class="w"> </span>initial_data.json
+</pre></div>
+</div>
+</section>
+</section>
+<section id="personnalisation">
+<h2>Personnalisation<a class="headerlink" href="#personnalisation" title="Link to this heading"></a></h2>
+<section id="modifier-les-styles">
+<h3>Modifier les styles<a class="headerlink" href="#modifier-les-styles" title="Link to this heading"></a></h3>
+<p>Les fichiers CSS se trouvent dans <code class="docutils literal notranslate"><span class="pre">static/</span></code> :</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* static/style.css */</span>
+<span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f0f0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="personnaliser-les-templates">
+<h3>Personnaliser les templates<a class="headerlink" href="#personnaliser-les-templates" title="Link to this heading"></a></h3>
+<p>Modifier les templates dans <code class="docutils literal notranslate"><span class="pre">templates/</span></code> :</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- templates/index.html --&gt;</span>
+{% extends &quot;base.html&quot; %}
+{% block content %}
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenue sur Holiday Homes<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Votre contenu personnalisé --&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+</section>
+<section id="ajouter-des-fonctionnalites">
+<h3>Ajouter des fonctionnalités<a class="headerlink" href="#ajouter-des-fonctionnalites" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Créer une nouvelle vue dans <code class="docutils literal notranslate"><span class="pre">views.py</span></code></p></li>
+<li><p>Ajouter l’URL dans <code class="docutils literal notranslate"><span class="pre">urls.py</span></code></p></li>
+<li><p>Créer le template correspondant</p></li>
+<li><p>Ajouter les tests</p></li>
+</ol>
+</section>
+</section>
+<section id="bonnes-pratiques-d-utilisation">
+<h2>Bonnes pratiques d’utilisation<a class="headerlink" href="#bonnes-pratiques-d-utilisation" title="Link to this heading"></a></h2>
+<section id="securite">
+<h3>Sécurité<a class="headerlink" href="#securite" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Changer le mot de passe admin</strong> après l’installation</p></li>
+<li><p><strong>Ne pas utiliser DEBUG=True</strong> en production</p></li>
+<li><p><strong>Utiliser HTTPS</strong> pour les connexions sécurisées</p></li>
+<li><p><strong>Limiter les accès admin</strong> aux personnes autorisées</p></li>
+<li><p><strong>Faire des sauvegardes régulières</strong></p></li>
+</ol>
+</section>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Utiliser la pagination</strong> pour les grandes listes</p></li>
+<li><p><strong>Optimiser les requêtes</strong> avec select_related()</p></li>
+<li><p><strong>Activer le cache</strong> pour les pages statiques</p></li>
+<li><p><strong>Minimiser les fichiers statiques</strong></p></li>
+</ol>
+</section>
+<section id="maintenance">
+<h3>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Vérifier les logs</strong> régulièrement</p></li>
+<li><p><strong>Monitorer avec Sentry</strong> les erreurs en production</p></li>
+<li><p><strong>Mettre à jour</strong> les dépendances de sécurité</p></li>
+<li><p><strong>Tester</strong> avant chaque déploiement</p></li>
+<li><p><strong>Documenter</strong> les modifications</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="problemes-courants">
+<h3>Problèmes courants<a class="headerlink" href="#problemes-courants" title="Link to this heading"></a></h3>
+<p><strong>Page 404 sur une location existante</strong> :</p>
+<ul class="simple">
+<li><p>Vérifier l’ID dans l’URL</p></li>
+<li><p>Confirmer que la location existe en base</p></li>
+<li><p>Vérifier les logs d’erreur</p></li>
+</ul>
+<p><strong>Impossible de se connecter à l’admin</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réinitialiser le mot de passe</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>changepassword<span class="w"> </span>admin
+</pre></div>
+</div>
+<p><strong>Les styles ne s’affichent pas</strong> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collecter les fichiers statiques</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</pre></div>
+</div>
+<p><strong>Erreur 500</strong> :</p>
+<ul class="simple">
+<li><p>Vérifier les logs dans la console</p></li>
+<li><p>Activer DEBUG temporairement</p></li>
+<li><p>Consulter Sentry si configuré</p></li>
+</ul>
+</section>
+</section>
+<section id="support-et-aide">
+<h2>Support et aide<a class="headerlink" href="#support-et-aide" title="Link to this heading"></a></h2>
+<p>Pour obtenir de l’aide :</p>
+<ol class="arabic simple">
+<li><p>Consulter la documentation technique</p></li>
+<li><p>Vérifier les logs d’erreur</p></li>
+<li><p>Utiliser le shell Django pour debugger</p></li>
+<li><p>Contacter l’équipe de développement</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API et interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deployment.html" class="btn btn-neutral float-right" title="Procédures de déploiement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, OC Lettings Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

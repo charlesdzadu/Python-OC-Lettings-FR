@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technologies utilisées &mdash; OC Lettings Site 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Structure de la base de données" href="database.html" />
+    <link rel="prev" title="Guide de démarrage rapide" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC Lettings Site
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Sommaire:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequis">Prérequis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-locale">Installation locale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#cloner-le-repository">1. Cloner le repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-l-environnement-virtuel">2. Créer l’environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installer-les-dependances">3. Installer les dépendances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#configuration-des-variables-d-environnement">4. Configuration des variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#appliquer-les-migrations">5. Appliquer les migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-un-superutilisateur-optionnel">6. Créer un superutilisateur (optionnel)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-avec-docker">Installation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#construire-l-image">1. Construire l’image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#lancer-l-application">2. Lancer l’application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Guide de démarrage rapide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-en-5-minutes">Démarrage en 5 minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-avec-docker">Démarrage avec Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#commandes-essentielles">Commandes essentielles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#premiers-pas">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#structure-des-urls-principales">Structure des URLs principales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#donnees-de-test">Données de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#resolution-des-problemes-courants">Résolution des problèmes courants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prochaines-etapes">Prochaines étapes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Technologies utilisées</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#stack-technique-principale">Stack technique principale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#framework-backend">Framework Backend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#base-de-donnees">Base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serveur-web">Serveur Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outils-de-developpement">Outils de développement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tests-et-qualite-du-code">Tests et qualité du code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-et-environnement">Configuration et environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-et-debugging">Monitoring et debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#containerisation-et-deploiement">Containerisation et déploiement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ci-cd-et-versioning">CI/CD et versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hebergement">Hébergement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-et-patterns">Architecture et patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#patterns-utilises">Patterns utilisés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-modulaire">Structure modulaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#securite">Sécurité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mesures-de-securite-implementees">Mesures de sécurité implémentées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#versions-et-compatibilite">Versions et compatibilité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compatibilite-testee">Compatibilité testée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dependances-et-mises-a-jour">Dépendances et mises à jour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gestion-des-dependances">Gestion des dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Structure de la base de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#schema-de-la-base-de-donnees">Schéma de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#diagramme-des-relations">Diagramme des relations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#modeles-de-donnees">Modèles de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-address">Model Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-letting">Model Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-profile">Model Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#tables-django-par-defaut">Tables Django par défaut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-d-authentification">Tables d’authentification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-systeme">Tables système</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#commandes-de-gestion-de-la-base-de-donnees">Commandes de gestion de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#acces-a-la-base-de-donnees">Accès à la base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migrations">Migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#gestion-des-donnees">Gestion des données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#requetes-orm-courantes">Requêtes ORM courantes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-letting">Exemples pour Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-profile">Exemples pour Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#optimisation-des-performances">Optimisation des performances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#index">Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#requetes-optimisees">Requêtes optimisées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#sauvegarde-et-restauration">Sauvegarde et restauration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#sauvegarde-complete">Sauvegarde complète</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#restauration">Restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#considerations-pour-la-production">Considérations pour la production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migration-vers-postgresql">Migration vers PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API et interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#architecture-des-urls">Architecture des URLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-generale">Structure générale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#configuration-des-urls-principales">Configuration des URLs principales</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#endpoints-de-l-application">Endpoints de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#application-principale">Application principale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-lettings">Module Lettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-profiles">Module Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#vues-detaillees">Vues détaillées</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-index-page-d-accueil">Vue index (page d’accueil)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-index">Vue lettings.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-letting">Vue lettings.letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-index">Vue profiles.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-profile">Vue profiles.profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-des-templates">Structure des templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#template-de-base">Template de base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#interface-d-administration-django">Interface d’administration Django</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#acces">Accès</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#modeles-enregistres">Modèles enregistrés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#fonctionnalites-d-administration">Fonctionnalités d’administration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-restful-extension-future">API RESTful (Extension future)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-proposee">Structure proposée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#implementation-avec-django-rest-framework">Implémentation avec Django REST Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#gestion-des-erreurs">Gestion des erreurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#pages-d-erreur-personnalisees">Pages d’erreur personnalisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#gestion-des-exceptions">Gestion des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#middleware-et-hooks">Middleware et hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#middleware-actifs">Middleware actifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#contexte-processors">Contexte processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tests-des-interfaces">Tests des interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-unitaires-des-vues">Tests unitaires des vues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-d-integration">Tests d’intégration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Guide d’utilisation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#navigation-dans-l-application">Navigation dans l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#page-d-accueil">Page d’accueil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-utilisateur">Interface utilisateur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-lettings-locations">Module Lettings (Locations)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-locations">Liste des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-une-location">Détail d’une location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#navigation-dans-les-locations">Navigation dans les locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-profiles-profils">Module Profiles (Profils)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-profils">Liste des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-un-profil">Détail d’un profil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#panel-d-administration">Panel d’administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-a-l-administration">Accès à l’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-d-administration">Interface d’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-locations">Gestion des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-profils">Gestion des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#fonctionnalites-avancees">Fonctionnalités avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#commandes-de-gestion">Commandes de gestion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-au-shell-django">Accès au shell Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#creation-de-donnees-via-le-shell">Création de données via le shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance-et-nettoyage">Maintenance et nettoyage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#personnalisation">Personnalisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#modifier-les-styles">Modifier les styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#personnaliser-les-templates">Personnaliser les templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#ajouter-des-fonctionnalites">Ajouter des fonctionnalités</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#bonnes-pratiques-d-utilisation">Bonnes pratiques d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#securite">Sécurité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#problemes-courants">Problèmes courants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#support-et-aide">Support et aide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Procédures de déploiement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#vue-d-ensemble-du-deploiement">Vue d’ensemble du déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#architecture-de-deploiement">Architecture de déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#flux-de-deploiement">Flux de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#pipeline-ci-cd-avec-github-actions">Pipeline CI/CD avec GitHub Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-du-workflow">Configuration du workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-secrets-github">Configuration des secrets GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#etapes-du-pipeline">Étapes du pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#containerisation-avec-docker">Containerisation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#dockerfile">Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#docker-compose">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#commandes-docker">Commandes Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#configuration-de-l-environnement">Configuration de l’environnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#variables-d-environnement">Variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#settings-de-production">Settings de production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-render">Déploiement sur Render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-initiale">Configuration initiale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-variables">Configuration des variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#render-yaml">render.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-manuel">Déploiement manuel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-d-autres-plateformes">Déploiement sur d’autres plateformes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#heroku">Heroku</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#aws-elastic-beanstalk">AWS Elastic Beanstalk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#digitalocean-app-platform">DigitalOcean App Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#monitoring-avec-sentry">Monitoring avec Sentry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-sentry">Configuration Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#test-de-sentry">Test de Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#alertes-et-notifications">Alertes et notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#rollback-et-recuperation">Rollback et récupération</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#strategie-de-rollback">Stratégie de rollback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#backup-et-restauration">Backup et restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#checklist-de-deploiement">Checklist de déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#avant-le-deploiement">Avant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#pendant-le-deploiement">Pendant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#apres-le-deploiement">Après le déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#commandes-utiles">Commandes utiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-rapide">Déploiement rapide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#verification-de-sante">Vérification de santé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#logs-et-debugging">Logs et debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#optimisations-de-production">Optimisations de production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC Lettings Site</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Technologies utilisées</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/technologies.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="technologies-utilisees">
+<h1>Technologies utilisées<a class="headerlink" href="#technologies-utilisees" title="Link to this heading"></a></h1>
+<p>Ce document présente l’ensemble des technologies et outils utilisés dans le projet OC Lettings Site.</p>
+<section id="stack-technique-principale">
+<h2>Stack technique principale<a class="headerlink" href="#stack-technique-principale" title="Link to this heading"></a></h2>
+<section id="framework-backend">
+<h3>Framework Backend<a class="headerlink" href="#framework-backend" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Django 4.2.16</strong></dt><dd><p>Framework web Python de haut niveau qui encourage le développement rapide et une conception propre et pragmatique.</p>
+<ul class="simple">
+<li><p>Architecture MVT (Model-View-Template)</p></li>
+<li><p>ORM intégré pour la gestion de base de données</p></li>
+<li><p>Système d’administration automatique</p></li>
+<li><p>Gestion de la sécurité (CSRF, XSS, SQL Injection)</p></li>
+<li><p>Système de routage d’URL flexible</p></li>
+</ul>
+</dd>
+<dt><strong>Python 3.11+</strong></dt><dd><p>Langage de programmation principal du projet.</p>
+<ul class="simple">
+<li><p>Typage dynamique</p></li>
+<li><p>Gestion automatique de la mémoire</p></li>
+<li><p>Large écosystème de bibliothèques</p></li>
+<li><p>Support des environnements virtuels</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="base-de-donnees">
+<h2>Base de données<a class="headerlink" href="#base-de-donnees" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>SQLite3</strong></dt><dd><p>Base de données relationnelle légère utilisée pour le développement et les tests.</p>
+<ul class="simple">
+<li><p>Aucune configuration serveur requise</p></li>
+<li><p>Base de données stockée dans un fichier unique</p></li>
+<li><p>Support complet des transactions ACID</p></li>
+<li><p>Parfait pour le développement et les petites applications</p></li>
+</ul>
+</dd>
+<dt><strong>Django ORM</strong></dt><dd><p>Couche d’abstraction de base de données.</p>
+<ul class="simple">
+<li><p>Migrations automatiques</p></li>
+<li><p>Requêtes Python plutôt que SQL brut</p></li>
+<li><p>Support de multiples backends de base de données</p></li>
+<li><p>Protection contre les injections SQL</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="serveur-web">
+<h2>Serveur Web<a class="headerlink" href="#serveur-web" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Gunicorn 21.2.0</strong></dt><dd><p>Serveur HTTP WSGI Python pour les déploiements en production.</p>
+<ul class="simple">
+<li><p>Serveur multi-worker</p></li>
+<li><p>Compatible avec Django</p></li>
+<li><p>Gestion des processus robuste</p></li>
+<li><p>Haute performance</p></li>
+</ul>
+</dd>
+<dt><strong>Whitenoise 6.5.0</strong></dt><dd><p>Middleware pour servir les fichiers statiques directement depuis Django.</p>
+<ul class="simple">
+<li><p>Compression automatique des fichiers statiques</p></li>
+<li><p>En-têtes de cache optimaux</p></li>
+<li><p>Intégration transparente avec Django</p></li>
+<li><p>Idéal pour les déploiements sur PaaS</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="outils-de-developpement">
+<h2>Outils de développement<a class="headerlink" href="#outils-de-developpement" title="Link to this heading"></a></h2>
+<section id="tests-et-qualite-du-code">
+<h3>Tests et qualité du code<a class="headerlink" href="#tests-et-qualite-du-code" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Pytest 4.8.0</strong></dt><dd><p>Framework de test Python moderne et puissant.</p>
+<ul class="simple">
+<li><p>Syntaxe simple et expressive</p></li>
+<li><p>Support des fixtures avancées</p></li>
+<li><p>Tests paramétrés</p></li>
+<li><p>Plugins extensibles</p></li>
+</ul>
+</dd>
+<dt><strong>Pytest-django 4.8.0</strong></dt><dd><p>Plugin pytest pour tester les applications Django.</p>
+<ul class="simple">
+<li><p>Intégration complète avec Django</p></li>
+<li><p>Base de données de test automatique</p></li>
+<li><p>Fixtures Django spécifiques</p></li>
+<li><p>Client de test HTTP</p></li>
+</ul>
+</dd>
+<dt><strong>Pytest-cov 4.1.0</strong></dt><dd><p>Plugin pour mesurer la couverture de code.</p>
+<ul class="simple">
+<li><p>Rapports détaillés de couverture</p></li>
+<li><p>Intégration avec pytest</p></li>
+<li><p>Support des seuils minimums</p></li>
+<li><p>Formats de sortie multiples</p></li>
+</ul>
+</dd>
+<dt><strong>Flake8 3.7.0</strong></dt><dd><p>Outil de vérification de style et de qualité du code Python.</p>
+<ul class="simple">
+<li><p>Vérification PEP 8</p></li>
+<li><p>Détection des erreurs de syntaxe</p></li>
+<li><p>Analyse de la complexité du code</p></li>
+<li><p>Extensible via plugins</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="configuration-et-environnement">
+<h3>Configuration et environnement<a class="headerlink" href="#configuration-et-environnement" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Python-decouple 3.8</strong></dt><dd><p>Bibliothèque pour séparer les paramètres de configuration du code.</p>
+<ul class="simple">
+<li><p>Variables d’environnement</p></li>
+<li><p>Fichiers .env</p></li>
+<li><p>Typage des valeurs de configuration</p></li>
+<li><p>Valeurs par défaut</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="monitoring-et-debugging">
+<h2>Monitoring et debugging<a class="headerlink" href="#monitoring-et-debugging" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Sentry-sdk 2.35.2</strong></dt><dd><p>Plateforme de monitoring d’erreurs en temps réel.</p>
+<ul class="simple">
+<li><p>Capture automatique des exceptions</p></li>
+<li><p>Contexte détaillé des erreurs</p></li>
+<li><p>Monitoring de performance</p></li>
+<li><p>Alertes configurables</p></li>
+<li><p>Intégration Django native</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Sphinx</strong></dt><dd><p>Générateur de documentation Python.</p>
+<ul class="simple">
+<li><p>Format reStructuredText</p></li>
+<li><p>Génération HTML/PDF</p></li>
+<li><p>Documentation du code automatique</p></li>
+<li><p>Thèmes personnalisables</p></li>
+</ul>
+</dd>
+<dt><strong>sphinx-rtd-theme 2.0.0</strong></dt><dd><p>Thème Read the Docs pour Sphinx.</p>
+<ul class="simple">
+<li><p>Design responsive</p></li>
+<li><p>Navigation intuitive</p></li>
+<li><p>Recherche intégrée</p></li>
+<li><p>Compatible mobile</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="containerisation-et-deploiement">
+<h2>Containerisation et déploiement<a class="headerlink" href="#containerisation-et-deploiement" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Docker</strong></dt><dd><p>Plateforme de containerisation.</p>
+<ul class="simple">
+<li><p>Environnements isolés</p></li>
+<li><p>Reproductibilité garantie</p></li>
+<li><p>Déploiement simplifié</p></li>
+<li><p>Multi-stage builds</p></li>
+</ul>
+</dd>
+<dt><strong>Docker Compose</strong></dt><dd><p>Outil pour définir et exécuter des applications Docker multi-conteneurs.</p>
+<ul class="simple">
+<li><p>Configuration YAML simple</p></li>
+<li><p>Orchestration locale</p></li>
+<li><p>Réseaux automatiques</p></li>
+<li><p>Volumes persistants</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="ci-cd-et-versioning">
+<h2>CI/CD et versioning<a class="headerlink" href="#ci-cd-et-versioning" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Git</strong></dt><dd><p>Système de contrôle de version distribué.</p>
+<ul class="simple">
+<li><p>Historique complet</p></li>
+<li><p>Branches et merges</p></li>
+<li><p>Collaboration d’équipe</p></li>
+<li><p>Intégration GitHub</p></li>
+</ul>
+</dd>
+<dt><strong>GitHub Actions</strong></dt><dd><p>Plateforme CI/CD intégrée à GitHub.</p>
+<ul class="simple">
+<li><p>Workflows automatisés</p></li>
+<li><p>Tests sur chaque push</p></li>
+<li><p>Build et push Docker automatique</p></li>
+<li><p>Déploiement continu</p></li>
+<li><p>Matrices de tests</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="hebergement">
+<h2>Hébergement<a class="headerlink" href="#hebergement" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Render</strong></dt><dd><p>Plateforme d’hébergement cloud moderne.</p>
+<ul class="simple">
+<li><p>Déploiement automatique depuis GitHub</p></li>
+<li><p>SSL/TLS gratuit</p></li>
+<li><p>Scaling automatique</p></li>
+<li><p>Variables d’environnement sécurisées</p></li>
+<li><p>Logs en temps réel</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="architecture-et-patterns">
+<h2>Architecture et patterns<a class="headerlink" href="#architecture-et-patterns" title="Link to this heading"></a></h2>
+<section id="patterns-utilises">
+<h3>Patterns utilisés<a class="headerlink" href="#patterns-utilises" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>MVT (Model-View-Template)</strong></dt><dd><p>Pattern architectural de Django.</p>
+<ul class="simple">
+<li><p><strong>Models</strong> : Définition des données et logique métier</p></li>
+<li><p><strong>Views</strong> : Logique de traitement des requêtes</p></li>
+<li><p><strong>Templates</strong> : Présentation et rendu HTML</p></li>
+</ul>
+</dd>
+<dt><strong>DRY (Don’t Repeat Yourself)</strong></dt><dd><p>Principe de développement évitant la duplication de code.</p>
+</dd>
+<dt><strong>KISS (Keep It Simple, Stupid)</strong></dt><dd><p>Principe favorisant la simplicité dans la conception.</p>
+</dd>
+</dl>
+</section>
+<section id="structure-modulaire">
+<h3>Structure modulaire<a class="headerlink" href="#structure-modulaire" title="Link to this heading"></a></h3>
+<p>L’application est divisée en applications Django distinctes :</p>
+<ul class="simple">
+<li><p><strong>oc_lettings_site</strong> : Application principale et configuration</p></li>
+<li><p><strong>lettings</strong> : Gestion des locations</p></li>
+<li><p><strong>profiles</strong> : Gestion des profils utilisateurs</p></li>
+</ul>
+</section>
+</section>
+<section id="securite">
+<h2>Sécurité<a class="headerlink" href="#securite" title="Link to this heading"></a></h2>
+<section id="mesures-de-securite-implementees">
+<h3>Mesures de sécurité implémentées<a class="headerlink" href="#mesures-de-securite-implementees" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Protection CSRF sur tous les formulaires</p></li>
+<li><p>Échappement automatique dans les templates</p></li>
+<li><p>Validation des données d’entrée</p></li>
+<li><p>Hashage sécurisé des mots de passe</p></li>
+<li><p>Variables sensibles dans les variables d’environnement</p></li>
+<li><p>Headers de sécurité via middleware</p></li>
+<li><p>SSL/TLS en production</p></li>
+</ul>
+</section>
+</section>
+<section id="versions-et-compatibilite">
+<h2>Versions et compatibilité<a class="headerlink" href="#versions-et-compatibilite" title="Link to this heading"></a></h2>
+<section id="compatibilite-testee">
+<h3>Compatibilité testée<a class="headerlink" href="#compatibilite-testee" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Python : 3.11, 3.12</p></li>
+<li><p>Systèmes d’exploitation : Linux, macOS, Windows</p></li>
+<li><p>Navigateurs : Chrome, Firefox, Safari, Edge (versions récentes)</p></li>
+<li><p>Docker : 20.10+</p></li>
+<li><p>Node.js : Non requis (pas de frontend JavaScript)</p></li>
+</ul>
+</section>
+</section>
+<section id="dependances-et-mises-a-jour">
+<h2>Dépendances et mises à jour<a class="headerlink" href="#dependances-et-mises-a-jour" title="Link to this heading"></a></h2>
+<section id="gestion-des-dependances">
+<h3>Gestion des dépendances<a class="headerlink" href="#gestion-des-dependances" title="Link to this heading"></a></h3>
+<p>Les dépendances sont gérées via :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> : Liste fixe des dépendances avec versions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> : Gestionnaire de paquets Python</p></li>
+<li><p>Mises à jour régulières pour la sécurité</p></li>
+<li><p>Tests de compatibilité avant mise à jour majeure</p></li>
+</ul>
+<p>Pour mettre à jour les dépendances :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Guide de démarrage rapide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="database.html" class="btn btn-neutral float-right" title="Structure de la base de données" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, OC Lettings Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

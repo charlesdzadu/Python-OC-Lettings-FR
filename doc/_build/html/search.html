@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search &mdash; OC Lettings Site 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="#" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC Lettings Site
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Sommaire:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequis">Prérequis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-locale">Installation locale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#cloner-le-repository">1. Cloner le repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-l-environnement-virtuel">2. Créer l’environnement virtuel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installer-les-dependances">3. Installer les dépendances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#configuration-des-variables-d-environnement">4. Configuration des variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#appliquer-les-migrations">5. Appliquer les migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#creer-un-superutilisateur-optionnel">6. Créer un superutilisateur (optionnel)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-avec-docker">Installation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#construire-l-image">1. Construire l’image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#lancer-l-application">2. Lancer l’application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Guide de démarrage rapide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-en-5-minutes">Démarrage en 5 minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#demarrage-avec-docker">Démarrage avec Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#commandes-essentielles">Commandes essentielles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#premiers-pas">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#structure-des-urls-principales">Structure des URLs principales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#donnees-de-test">Données de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#resolution-des-problemes-courants">Résolution des problèmes courants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#prochaines-etapes">Prochaines étapes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies utilisées</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#stack-technique-principale">Stack technique principale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#framework-backend">Framework Backend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#base-de-donnees">Base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#serveur-web">Serveur Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#outils-de-developpement">Outils de développement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#tests-et-qualite-du-code">Tests et qualité du code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#configuration-et-environnement">Configuration et environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#monitoring-et-debugging">Monitoring et debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#containerisation-et-deploiement">Containerisation et déploiement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#ci-cd-et-versioning">CI/CD et versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#hebergement">Hébergement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#architecture-et-patterns">Architecture et patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#patterns-utilises">Patterns utilisés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#structure-modulaire">Structure modulaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#securite">Sécurité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#mesures-de-securite-implementees">Mesures de sécurité implémentées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#versions-et-compatibilite">Versions et compatibilité</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#compatibilite-testee">Compatibilité testée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="technologies.html#dependances-et-mises-a-jour">Dépendances et mises à jour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="technologies.html#gestion-des-dependances">Gestion des dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Structure de la base de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#vue-d-ensemble">Vue d’ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#schema-de-la-base-de-donnees">Schéma de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#diagramme-des-relations">Diagramme des relations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#modeles-de-donnees">Modèles de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-address">Model Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-letting">Model Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#model-profile">Model Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#tables-django-par-defaut">Tables Django par défaut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-d-authentification">Tables d’authentification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#tables-systeme">Tables système</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#commandes-de-gestion-de-la-base-de-donnees">Commandes de gestion de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#acces-a-la-base-de-donnees">Accès à la base de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migrations">Migrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#gestion-des-donnees">Gestion des données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#requetes-orm-courantes">Requêtes ORM courantes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-letting">Exemples pour Letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#exemples-pour-profile">Exemples pour Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#optimisation-des-performances">Optimisation des performances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#index">Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#requetes-optimisees">Requêtes optimisées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#sauvegarde-et-restauration">Sauvegarde et restauration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#sauvegarde-complete">Sauvegarde complète</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#restauration">Restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#considerations-pour-la-production">Considérations pour la production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#migration-vers-postgresql">Migration vers PostgreSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API et interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#architecture-des-urls">Architecture des URLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-generale">Structure générale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#configuration-des-urls-principales">Configuration des URLs principales</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#endpoints-de-l-application">Endpoints de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#application-principale">Application principale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-lettings">Module Lettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#module-profiles">Module Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#vues-detaillees">Vues détaillées</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-index-page-d-accueil">Vue index (page d’accueil)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-index">Vue lettings.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-lettings-letting">Vue lettings.letting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-index">Vue profiles.index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vue-profiles-profile">Vue profiles.profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-des-templates">Structure des templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#template-de-base">Template de base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#interface-d-administration-django">Interface d’administration Django</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#acces">Accès</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#modeles-enregistres">Modèles enregistrés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#fonctionnalites-d-administration">Fonctionnalités d’administration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-restful-extension-future">API RESTful (Extension future)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#structure-proposee">Structure proposée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#implementation-avec-django-rest-framework">Implémentation avec Django REST Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#gestion-des-erreurs">Gestion des erreurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#pages-d-erreur-personnalisees">Pages d’erreur personnalisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#gestion-des-exceptions">Gestion des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#middleware-et-hooks">Middleware et hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#middleware-actifs">Middleware actifs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#contexte-processors">Contexte processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tests-des-interfaces">Tests des interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-unitaires-des-vues">Tests unitaires des vues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tests-d-integration">Tests d’intégration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Guide d’utilisation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#navigation-dans-l-application">Navigation dans l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#page-d-accueil">Page d’accueil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-utilisateur">Interface utilisateur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-lettings-locations">Module Lettings (Locations)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-locations">Liste des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-une-location">Détail d’une location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#navigation-dans-les-locations">Navigation dans les locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#module-profiles-profils">Module Profiles (Profils)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#liste-des-profils">Liste des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#detail-d-un-profil">Détail d’un profil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#panel-d-administration">Panel d’administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-a-l-administration">Accès à l’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#interface-d-administration">Interface d’administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-locations">Gestion des locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#gestion-des-profils">Gestion des profils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#fonctionnalites-avancees">Fonctionnalités avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#commandes-de-gestion">Commandes de gestion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#acces-au-shell-django">Accès au shell Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#creation-de-donnees-via-le-shell">Création de données via le shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance-et-nettoyage">Maintenance et nettoyage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#personnalisation">Personnalisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#modifier-les-styles">Modifier les styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#personnaliser-les-templates">Personnaliser les templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#ajouter-des-fonctionnalites">Ajouter des fonctionnalités</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#bonnes-pratiques-d-utilisation">Bonnes pratiques d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#securite">Sécurité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#problemes-courants">Problèmes courants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#support-et-aide">Support et aide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Procédures de déploiement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#vue-d-ensemble-du-deploiement">Vue d’ensemble du déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#architecture-de-deploiement">Architecture de déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#flux-de-deploiement">Flux de déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#pipeline-ci-cd-avec-github-actions">Pipeline CI/CD avec GitHub Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-du-workflow">Configuration du workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-secrets-github">Configuration des secrets GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#etapes-du-pipeline">Étapes du pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#containerisation-avec-docker">Containerisation avec Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#dockerfile">Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#docker-compose">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#commandes-docker">Commandes Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#configuration-de-l-environnement">Configuration de l’environnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#variables-d-environnement">Variables d’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#settings-de-production">Settings de production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-render">Déploiement sur Render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-initiale">Configuration initiale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-des-variables">Configuration des variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#render-yaml">render.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-manuel">Déploiement manuel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#deploiement-sur-d-autres-plateformes">Déploiement sur d’autres plateformes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#heroku">Heroku</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#aws-elastic-beanstalk">AWS Elastic Beanstalk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#digitalocean-app-platform">DigitalOcean App Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#monitoring-avec-sentry">Monitoring avec Sentry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#configuration-sentry">Configuration Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#test-de-sentry">Test de Sentry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#alertes-et-notifications">Alertes et notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#rollback-et-recuperation">Rollback et récupération</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#strategie-de-rollback">Stratégie de rollback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#backup-et-restauration">Backup et restauration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#checklist-de-deploiement">Checklist de déploiement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#avant-le-deploiement">Avant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#pendant-le-deploiement">Pendant le déploiement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#apres-le-deploiement">Après le déploiement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#commandes-utiles">Commandes utiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#deploiement-rapide">Déploiement rapide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#verification-de-sante">Vérification de santé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#logs-et-debugging">Logs et debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#optimisations-de-production">Optimisations de production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deployment.html#securite">Sécurité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC Lettings Site</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search functionality.
+    </p>
+  </div>
+  </noscript>
+
+  
+  <div id="search-results">
+  
+  </div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, OC Lettings Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <script>
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script id="searchindexloader"></script>
+   
+
+
+</body>
+</html>
